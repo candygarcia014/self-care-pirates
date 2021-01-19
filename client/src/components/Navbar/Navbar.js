@@ -7,6 +7,9 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
+import '../images/SCP.png';
+
+const LogoCropped = require('../images/SCPCropped.png')
 
 const NavBar = () => {
   return (
@@ -18,7 +21,7 @@ const NavBar = () => {
         <Bars />
         <NavMenu>
           <NavLink to='/' activeStyle>
-            LOGO
+            <img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/>
           </NavLink>
           <NavLink to='/forum' activeStyle>
             Forum
@@ -31,7 +34,7 @@ const NavBar = () => {
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <NavBtnLink to='/signin' style={{"border":"black solid 1px"}} >Profile/Sign In</NavBtnLink>
         </NavBtn>
       </Nav>
 

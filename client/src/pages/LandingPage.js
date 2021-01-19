@@ -1,4 +1,9 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import '../components/images/SCP.gif';
+
+const logo = require('../components/images/SCP.gif')
+
 
 const LandingPage = () => {
   return (
@@ -10,7 +15,12 @@ const LandingPage = () => {
         height: '90vh'
       }}
     >
-      <h1>Home NEW</h1>
+      <div className="Container">
+        <Row>
+        <img src={logo.default} alt="logo"/>
+        </Row>
+      </div>
+
     </div>
   );
 };
