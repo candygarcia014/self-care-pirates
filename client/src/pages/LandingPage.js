@@ -1,5 +1,6 @@
 import React from 'react';
-import '../components/images/SCP.gif'
+import Row from 'react-bootstrap/Row';
+import '../components/images/SCP.gif';
 
 const logo = require('../components/images/SCP.gif')
 
@@ -15,7 +16,9 @@ const LandingPage = () => {
       }}
     >
       <div className="Container">
+        <Row>
         <img src={logo.default} alt="logo"/>
+        </Row>
       </div>
 
     </div>
