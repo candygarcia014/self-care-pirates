@@ -10,7 +10,7 @@ import {
 import '../images/SCP.png';
 import Navbar from 'react-bootstrap/Navbar';
 
-const logo = require('../images/SCP.png')
+const LogoCropped = require('../images/SCPCropped.png')
 
 const NavBar = () => {
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
 
         </NavLink>
         <Bars />
-        <Navbar.Brand><img src ={logo.default} alt="logo" style={{"height":"5rem"}}/></Navbar.Brand>
+        <Navbar.Brand><img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/></Navbar.Brand>
         <NavMenu>
           <NavLink to='/' activeStyle>
             LOGO
