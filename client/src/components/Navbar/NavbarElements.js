@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   font-family: Roboto, SANS-SERIF;
+  font-size: smaller;
   background: #032626;
   height: 80px;
   display: flex;
@@ -46,7 +47,7 @@ export const Bars = styled(FaBars)`
 `
 
 export const NavMenu = styled.div`
-  font-family: Roboto;
+  font-family: Roboto, SANS-SERIF;
   font-style: normal;
   display: flex;
   align-items: center;
