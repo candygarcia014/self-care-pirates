@@ -6,7 +6,7 @@ import LandingPage from './pages/LandingPage';
 import Forum from './pages/Forum/Forum';
 import Services from './pages/services';
 import User from './pages/User';
-import OurStory from './pages/OurStory';
+import OurStory from './pages/OurStory/OurStory';
 
 function App() {
   return (
