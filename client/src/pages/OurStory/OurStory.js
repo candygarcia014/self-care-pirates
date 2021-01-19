@@ -1,17 +1,13 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const OurStory = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '90vh'
-      }}
-    >
-      <h1>Our Story</h1>
-    </div>
+    <Container fluid>
+  <Row>
+    <Col>1 of 1</Col>
+  </Row>
+</Container>
   );
 };
 
