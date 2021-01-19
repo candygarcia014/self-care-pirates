@@ -8,7 +8,6 @@ import {
   NavBtnLink
 } from './NavbarElements';
 import '../images/SCP.png';
-import Navbar from 'react-bootstrap/Navbar';
 
 const LogoCropped = require('../images/SCPCropped.png')
 
@@ -20,10 +19,9 @@ const NavBar = () => {
 
         </NavLink>
         <Bars />
-        <Navbar.Brand><img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/></Navbar.Brand>
         <NavMenu>
           <NavLink to='/' activeStyle>
-            LOGO
+            <img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/>
           </NavLink>
           <NavLink to='/forum' activeStyle>
             Forum
