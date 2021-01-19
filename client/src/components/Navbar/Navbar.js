@@ -34,7 +34,7 @@ const NavBar = () => {
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <NavBtnLink to='/signin' style={{"border":"black solid 1px"}} >Profile/Sign In</NavBtnLink>
         </NavBtn>
       </Nav>
 
