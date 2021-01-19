@@ -7,6 +7,10 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
+import '../images/SCP.png';
+import Navbar from 'react-bootstrap/Navbar';
+
+const logo = require('../images/SCP.png')
 
 const NavBar = () => {
   return (
@@ -16,6 +20,7 @@ const NavBar = () => {
 
         </NavLink>
         <Bars />
+        <Navbar.Brand href="#home"><img src={logo.default} alt="logo"/></Navbar.Brand>
         <NavMenu>
           <NavLink to='/' activeStyle>
             LOGO
