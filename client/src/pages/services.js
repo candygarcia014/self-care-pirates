@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Services = () => {
   return (
     <div
@@ -10,7 +11,7 @@ const Services = () => {
         height: '90vh'
       }}
     >
-      <h1>Services</h1>
+      {/* <h1><SignUpContainer /></h1> */}
     </div>
   );
 };

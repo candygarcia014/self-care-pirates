@@ -10,10 +10,10 @@ import {
 
 const NavBar = () => {
   return (
-    <>
+ 
       <Nav>
         <NavLink to='/'>
-          {/* <img src={require('../images/logo.png')} alt='logo' /> */}
+
         </NavLink>
         <Bars />
         <NavMenu>
@@ -23,20 +23,18 @@ const NavBar = () => {
           <NavLink to='/services' activeStyle>
             Services
           </NavLink>
-          <NavLink to='/contact-us' activeStyle>
-            Contact Us
+          <NavLink to='/our-story' activeStyle>
+            Our Story
           </NavLink>
-          <NavLink to='/sign-up' activeStyle>
-            Sign Up
+          <NavLink to='/user' activeStyle>
+           User
           </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
           <NavBtnLink to='/signin'>Sign In</NavBtnLink>
         </NavBtn>
       </Nav>
-    </>
+
   );
 };
 
