@@ -5,7 +5,7 @@ import '../userCard/userCards.css';
 class UserCards extends Component {
   state = {
     data: [],
-    per: 9,
+    per: 1,
     page: 1,
     total_pages: null
   };
@@ -47,7 +47,7 @@ class UserCards extends Component {
       <div className="clearfix">
         <div className="row">
           {this.state.data.map(data => (
-            <div className="col-md-4 animated fadeIn" key={data.id.value}>
+            <div className="col-md-12 animated fadeIn" key={data.id.value}>
               <div className="card">
                 <div className="card-body">
                   <div className="avatar">
