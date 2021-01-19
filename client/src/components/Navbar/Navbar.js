@@ -20,7 +20,7 @@ const NavBar = () => {
 
         </NavLink>
         <Bars />
-        <Navbar.Brand href="#home"><img src={logo.default} alt="logo"/></Navbar.Brand>
+        <Navbar.Brand><img src ={logo.default} alt="logo" style={{"height":"5rem"}}/></Navbar.Brand>
         <NavMenu>
           <NavLink to='/' activeStyle>
             LOGO
