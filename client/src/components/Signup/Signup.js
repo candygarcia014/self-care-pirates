@@ -44,17 +44,17 @@ const Signup = (props) => {
       </FormGroup>
       <FormGroup>
         <Label for="password">Password </Label>
-        <Input type="password" name="password" id="password" placeholder="Password" onChange = { e => setPassword (e.target.value)} value = {password}/>
+        <Input type="password" name="password" id="password" placeholder="Password 6+ characters" onChange = { e => setPassword (e.target.value)} value = {password}/>
       </FormGroup>
       <Row form>
         <Col>
           <FormGroup>
             <Label for="userName">Username</Label>
-            <Input type="text" name="userName" id="User Name" placeholder="Create a cool username" onChange = { e => setUserName (e.target.value)} value = {userName}/>
+            <Input type="text" name="userName" id="User Name" placeholder="Username 4+ characters" onChange = { e => setUserName (e.target.value)} value = {userName}/>
           </FormGroup>
         </Col>
       </Row>
-      <Button onClick = {handleSubmit}>Sign in</Button>
+      <Button onClick = {handleSubmit}>Sign up</Button>
     </Form>
   );
 }

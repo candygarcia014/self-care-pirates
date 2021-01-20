@@ -16,6 +16,7 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
+        validate: [({ length }) => length >= 5, "Please type a username that is longer than 5 characters"],
         unique: true
     },
     email: {
