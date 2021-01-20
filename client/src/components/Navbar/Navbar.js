@@ -33,9 +33,12 @@ const NavBar = () => {
            User
           </NavLink>
         </NavMenu>
-        <NavBtn>
+        
+        <NavBtn className="ml-auto">
           <NavBtnLink to='/signin' style={{"border":"black solid 1px"}} >Profile/Sign In</NavBtnLink>
         </NavBtn>
+
+        
       </Nav>
 
   );
