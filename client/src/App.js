@@ -16,6 +16,7 @@ function App() {
         <Route path='/' exact component={LandingPage} />
         <Route path='/forum' component={Forum} />
         <Route path='/services' component={Services} />
+{/* for user make sure that only loggedin users are able to tsee the user profile page */}
         <Route path='/user' component={User} />
         <Route path='/our-story' component={OurStory} />
       </Switch>
