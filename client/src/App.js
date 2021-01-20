@@ -4,9 +4,10 @@ import NavBar from '../src/components/Navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Forum from './pages/Forum/Forum';
-import Services from './pages/services';
+import Register from './pages/Register';
 import User from './pages/User';
 import OurStory from './pages/OurStory/OurStory';
+
 
 function App() {
   return (
@@ -15,10 +16,9 @@ function App() {
       <Switch>
         <Route path='/' exact component={LandingPage} />
         <Route path='/forum' component={Forum} />
-        <Route path='/services' component={Services} />
-{/* for user make sure that only loggedin users are able to tsee the user profile page */}
         <Route path='/user' component={User} />
         <Route path='/our-story' component={OurStory} />
+        <Route path='/register' component={Register} />
       </Switch>
     </Router>
   );
