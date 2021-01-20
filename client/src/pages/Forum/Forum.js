@@ -55,7 +55,7 @@ const Forum = () => {
         <Col xs={2}>
           <Row>
             <Col xs={12}>
-              Widgets
+              
             </Col>
           </Row>
         </Col>
