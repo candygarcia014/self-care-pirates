@@ -81,6 +81,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
+  align-items: center;
   background: white;
   opacity: 0.5;
   padding: 10px 22px;

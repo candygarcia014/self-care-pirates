@@ -15,14 +15,11 @@ const NavBar = () => {
   return (
  
       <Nav>
-        <NavLink to='/'>
-
+        <NavLink to='/' activeStyle>
+          <img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/>
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/' activeStyle>
-            <img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/>
-          </NavLink>
           <NavLink to='/forum' activeStyle>
             Forum
           </NavLink>
@@ -33,9 +30,12 @@ const NavBar = () => {
            User
           </NavLink>
         </NavMenu>
-        <NavBtn>
+        
+        <NavBtn className="ml-auto">
           <NavBtnLink to='/signin' style={{"border":"black solid 1px"}} >Profile/Sign In</NavBtnLink>
         </NavBtn>
+
+        
       </Nav>
 
   );
