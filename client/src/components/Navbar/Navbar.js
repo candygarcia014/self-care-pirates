@@ -18,8 +18,6 @@ const NavBar = () => {
         <NavLink to='/' activeStyle>
           <img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/>
         </NavLink>
-        <NavLink to='/'>
-        </NavLink>
         <Bars />
         <NavMenu>
           <NavLink to='/forum' activeStyle>
