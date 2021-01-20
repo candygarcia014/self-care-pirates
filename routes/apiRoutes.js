@@ -4,6 +4,7 @@ const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 
 router.post("/signup", (req, res) => {
+    console.log(req.body)
     const { email, firstName, lastName, username, password } = req.body
         if(!email || !firstName || !lastName || !username || !password) {
             return res.status(500).send("Please fill out all fields");
