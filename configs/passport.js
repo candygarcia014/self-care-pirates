@@ -5,15 +5,17 @@ const passport = require('passport'),
 
       passport.use(new LocalStrategy(
         function(username, password, done) {
-          User.findOne({ username }, async (err, user) => {
-            if (err) { return done(err); }
+          User.findOne({ username }).select("-password").then((user) => {
+            // if (err) { return done(err); }
             if (!user) {
               return done(null, false, { message: 'Incorrect username.' });
             }
-            if (!(await user.verifyPassword(password))) {
+            if (!(user.verifyPassword(password))) {
               return done(null, false, { message: 'Incorrect password.' });
             }
             return done(null, user);
+          }).catch(err => {
+            if (err) { return done(err); }
           });
         }
       ));
