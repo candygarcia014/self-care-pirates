@@ -12,5 +12,17 @@
     box-sizing: border-box;
     filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25));
     border-radius: 250px;
+}
 
+.Username {
+    margin-top: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.FullName {
+    margin-top: 4rem;
+    text-align: center;
+    position: relative;
+    font-size: smaller;
 }

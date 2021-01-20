@@ -16,7 +16,7 @@ function ProfileCard() {
                 </Col>
             </Row>
 
-            {/* Username */}
+            {/* Username, this.uppercase(data.name.username)*/}
             <Row>
                 <Col xs={12}>
                     <div className="Username">
@@ -24,6 +24,18 @@ function ProfileCard() {
                     </div> 
                 </Col>
             </Row>
+
+            {/* First/Last Name, this.uppercase(data.name.username)*/}
+            <Row>
+                <Col xs={12}>
+                    <div className="FullName">
+                        {/* {this.uppercase(data.name.first) + " " + this.uppercase(data.name.last)} */}
+                        {/* Placeholder: */}
+                        Jean-Luc Pikachu
+                    </div> 
+                </Col>
+            </Row>
+            
 
 
         </div>
