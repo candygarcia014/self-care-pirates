@@ -3,12 +3,14 @@ const express = require("express"),
       mongoose = require('mongoose'),
       passport = require("passport"),
       apiRoute = require('./routes/apiRoutes'),
+      session = require("express-session"),
       PORT = process.env.PORT || 3001;
 
 require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(session({ resave:true, saveUninitialized:true, secret: 'Pirate Pickles',}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -17,7 +19,9 @@ if(process.env.NODE_ENV === "production") {
 };
 
 mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 //define routes 
