@@ -9,6 +9,19 @@ const Signup = (props) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userName, setUserName] = useState("")
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  Api.signup({ 
+    firstName: firstName, 
+    lastName: lastName,
+    email: email,
+    password: password,
+    username: userName
+  }).then(res => {console.log(res)}) 
+
+
+  }
+
   return (
     <Form>
       <Row form>
@@ -41,11 +54,7 @@ const Signup = (props) => {
           </FormGroup>
         </Col>
       </Row>
-      {/* <FormGroup check>
-        <Input type="checkbox" name="check" id="exampleCheck"/>
-        <Label for="exampleCheck" check>Check me out</Label>
-      </FormGroup> */}
-      <Button>Sign in</Button>
+      <Button onClick = {handleSubmit}>Sign in</Button>
     </Form>
   );
 }
