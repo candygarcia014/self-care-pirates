@@ -1,7 +1,8 @@
 import React from 'react';
+import Signup from '../components/Signup/Signup';
 
 
-const Services = () => {
+const Register = () => {
   return (
     <div
       style={{
@@ -11,9 +12,9 @@ const Services = () => {
         height: '90vh'
       }}
     >
-      {/* <h1><SignUpContainer /></h1> */}
+      <h1><Signup /></h1>
     </div>
   );
 };
 
-export default Services;
+export default Register;
