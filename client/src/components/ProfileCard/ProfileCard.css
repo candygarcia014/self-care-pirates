@@ -26,3 +26,16 @@
     position: relative;
     font-size: smaller;
 }
+
+.Bio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.card {
+    padding: 2rem;
+    text-align: center;
+}
+

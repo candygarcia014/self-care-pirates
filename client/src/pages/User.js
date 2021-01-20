@@ -9,36 +9,7 @@ import ProfileCard from '../components/ProfileCard/ProfileCard';
 const User = () => {
   return (
     <div className="Container">
-      <ProfileCard></ProfileCard>
-
-      
-      {/* Row for profile picture */}
-      <Row>
-        <Col xs={12}>
-          Hello
-        </Col>
-      </Row>
-
-      {/* Row for username */}
-      <Row>
-        <Col xs={12}>
-          Hello
-        </Col>
-      </Row>
-
-      {/* Row for first/last name*/}
-      <Row>
-        <Col xs={12}>
-          Hello
-        </Col>
-      </Row>
-
-      {/* Row for bio */}
-      <Row>
-        <Col xs={12}>
-          Hello
-        </Col>
-      </Row>
+      <ProfileCard />
 
       
     </div>
