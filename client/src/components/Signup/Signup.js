@@ -9,6 +9,19 @@ const Signup = (props) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userName, setUserName] = useState("")
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  Api.signup({ 
+    firstName: firstName, 
+    lastName: lastName,
+    email: email,
+    password: password,
+    username: userName
+  }).then(res => {console.log(res)}) 
+
+
+  }
+
   return (
     <Form>
       <Row form>
@@ -31,21 +44,17 @@ const Signup = (props) => {
       </FormGroup>
       <FormGroup>
         <Label for="password">Password </Label>
-        <Input type="password" name="password" id="password" placeholder="Password" onChange = { e => setPassword (e.target.value)} value = {password}/>
+        <Input type="password" name="password" id="password" placeholder="Password 6+ characters" onChange = { e => setPassword (e.target.value)} value = {password}/>
       </FormGroup>
       <Row form>
         <Col>
           <FormGroup>
             <Label for="userName">Username</Label>
-            <Input type="text" name="userName" id="User Name" placeholder="Create a cool username" onChange = { e => setUserName (e.target.value)} value = {userName}/>
+            <Input type="text" name="userName" id="User Name" placeholder="Username 4+ characters" onChange = { e => setUserName (e.target.value)} value = {userName}/>
           </FormGroup>
         </Col>
       </Row>
-      {/* <FormGroup check>
-        <Input type="checkbox" name="check" id="exampleCheck"/>
-        <Label for="exampleCheck" check>Check me out</Label>
-      </FormGroup> */}
-      <Button>Sign in</Button>
+      <Button onClick = {handleSubmit}>Sign up</Button>
     </Form>
   );
 }

@@ -74,14 +74,6 @@ class UserCards extends Component {
             </div>
           ))}
         </div>
-        <button
-          className="btn btn-light btn-block w-50 mx-auto"
-          onClick={e => {
-            this.loadMore();
-          }}
-        >
-          Load More Users
-        </button>
       </div>
     );
   }

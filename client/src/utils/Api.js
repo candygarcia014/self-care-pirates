@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default { 
-    signup: function() {
-        return axios.post("/signup")
+    signup: function(data) {
+        return axios.post("/api/signup", data);
     }
 }

@@ -17,12 +17,8 @@ function Tags() {
         <ToggleButton className="tag-spacing" value={4}>MIND</ToggleButton>
         <ToggleButton className="tag-spacing" value={5}>STYLE</ToggleButton>
         <ToggleButton className="tag-spacing" value={6}>NAILS</ToggleButton>
-      </ToggleButtonGroup>
-
-      
+      </ToggleButtonGroup>     
     );
   }
-
-
 
 export default Tags;
