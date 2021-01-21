@@ -18,8 +18,6 @@ const Signup = (props) => {
     password: password,
     username: userName
   }).then(res => {console.log(res)}) 
-
-
   }
 
   return (
