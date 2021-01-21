@@ -18,7 +18,7 @@ const OurStory = () => {
     <Row>
       <Col xs={8}>
         {/* Candy's Card */}
-       <DevImage source="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"/>
+       <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
         <DevCard 
         name="Candy"
         github="candy's github" 
@@ -29,21 +29,36 @@ const OurStory = () => {
        <div className="image">
           {/* Lawrence's Card */}
         <DevCard 
-        name="Lawny dawg"
-        github="real G github"
+        name="Lawrence"
+        github="lawrence's github"
           />
           
-        <DevImage source="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"/></div>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/></div>
+      </Col>
+
+      <Col xs={8}>
+          {/* Tammy's Card */}
+          <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+        <DevCard 
+        name="Tammy"
+        github="tammy's github"
+          />
       </Col>
 
       <Col xs={8}>
         {/* Shanni's Card */}
-        <DevCard />
+        <DevCard 
+        name="Shanni"
+        github="shanni's github"/>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
       </Col>
 
       <Col xs={8}>
         {/* Cathlene's Card */}
-        <DevCard />
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+        <DevCard 
+        name="Cathlene"
+        github="cathlene's github"/>
       </Col>
     </Row>
   </Container>
