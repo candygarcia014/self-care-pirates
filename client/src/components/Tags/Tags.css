@@ -1,0 +1,13 @@
+
+
+.btn-group-toggle>.btn {
+    margin: 0 auto 10% !important;
+    border-radius: 5px !important;
+
+}
+
+.btn-group-toggle {
+    display: flex;
+    justify-content: center;
+}
+

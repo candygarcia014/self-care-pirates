@@ -1,14 +1,14 @@
 import React from 'react';
-import UserCards from '../components/userCard/UserCards'
+import ProfileCard from '../components/ProfileCard/ProfileCard';
 
 
 
 const User = () => {
   return (
-    <div className="User">
-      <div className="container">
-      <UserCards />  
-    </div>
+    <div className="Container">
+      <ProfileCard />
+
+      
     </div>
   );
 };

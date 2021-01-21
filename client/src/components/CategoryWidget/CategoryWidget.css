@@ -1,0 +1,6 @@
+.widget-title {
+    font-size: small;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,17 @@
+.meta-data {
+    font-style: italic;
+}
+
+
+
+/* 
+.btn-group>.btn-group {
+    border-radius: 5px !important;
+} */
+
+
+.btn-primary {
+    margin: 0 auto 10% !important;
+    border-radius: 10px !important;
+}
+
