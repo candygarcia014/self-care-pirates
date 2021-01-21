@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
-
 router.post("/signup", (req, res) => {
     console.log(req.body)
     const { email, firstName, lastName, username, password } = req.body
@@ -28,16 +27,13 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
     // delete user.password;
     console.log(req.body)
     res.json(user)
-
 });
 //logout route 
 router.get("/logout", (req,res) => {
     req.logout();
     res.json("User logged out")
 });
-
 router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
 });
-
 module.exports = router;

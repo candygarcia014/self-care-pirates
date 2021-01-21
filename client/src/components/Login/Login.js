@@ -2,19 +2,25 @@ import React, { useState, useEffect} from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Login.css';
 import Api from "../../utils/Api";
-
+import { useHistory } from 'react-router-dom';
 const Login = (props) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault()
   Api.login({ 
-    email: email,
+    username: email,
     password: password,
-  }).then(res => {console.log(res)})}
+  }).then(res => {
+    console.log(res)
+    if(res.data.username){
+       localStorage.setItem("user", res.data)
+       history.push("/user");
+    }
+  })}
   return (
     <Form>
-      
       <Row form>
     <FormGroup>
       <Label for="email">Email</Label>
@@ -28,9 +34,8 @@ const Login = (props) => {
     </FormGroup>
     <Button onClick = {handleSubmit}>Log in</Button>
     </Row>
-
   </Form>
   );
 }
-
 export default Login;
+
