@@ -20,7 +20,7 @@ const NavBar = () => {
     <Navbar expand="lg">
       
       <Link to='/'><img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/></Link>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" variant="outline-secondary"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
 
@@ -45,11 +45,11 @@ const NavBar = () => {
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button className="SearchBtn" variant="outline-light">Search</Button>
+          <Button className="SearchBtn" variant="outline-secondary">Search</Button>
         </Form>
         
 
-        <Button className="LoginBtn" variant="outline-light"><Link to='/Register' className="RegisterBtn">Login / Sign Up</Link></Button>
+        <Button className="LoginBtn" variant="outline-secondary"><Link to='/Register' className="RegisterBtn">Login / Sign Up</Link></Button>
 
         
       </Navbar.Collapse>
