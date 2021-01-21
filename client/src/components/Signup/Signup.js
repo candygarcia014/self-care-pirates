@@ -18,8 +18,6 @@ const Signup = (props) => {
     password: password,
     username: userName
   }).then(res => {console.log(res)}) 
-
-
   }
 
   return (
@@ -55,6 +53,8 @@ const Signup = (props) => {
         </Col>
       </Row>
       <Button onClick = {handleSubmit}>Sign up</Button>
+    {/* //sigin button that redirects the  user to the login page if they hve already signed up*/}
+      <Button onClick = {handleSubmit}>Log in</Button>
     </Form>
   );
 }
