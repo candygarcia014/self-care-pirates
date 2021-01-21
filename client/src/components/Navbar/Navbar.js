@@ -33,12 +33,9 @@ const NavBar = () => {
         
         <NavBtn className="ml-auto">
           {/* Will display "Profile" once logged in */}
-          <NavBtnLink to='/signin' style={{"border":"black solid 1px"}} >Login / Sign Up</NavBtnLink>
+          <NavBtnLink to='/Register' style={{"border":"black solid 1px"}} >Login / Sign Up</NavBtnLink>
         </NavBtn>
-
-        
       </Nav>
-
   );
 };
 
