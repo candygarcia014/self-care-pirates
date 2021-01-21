@@ -1,0 +1,31 @@
+.dev-image{
+    
+    width: 240px;
+    height: 243px;
+    left: 248px;
+    top: 886px;
+    border-radius: 50%;
+    animation: swing 1.8s infinite;
+
+    /* border-radius: 50%;
+    max-width: 12rem;
+    animation: rotate 5s infinite; */
+}
+
+/* @keyframes rotate{
+    0% { transform: rotate(180deg)}
+
+    100% { transform: rotate(360deg) }
+} */
+
+@keyframes swing { 
+
+    /* 0% { transform: rotate(45deg); } 
+    100% { transform: rotate(-90deg); } */
+
+    20% { transform: rotate(50deg); } 
+    40% { transform: rotate(-30deg); } 
+    60% { transform: rotate(5deg); } 
+    80% { transform: rotate(-5deg); } 
+    100% { transform: rotate(0deg); } 
+ } 
