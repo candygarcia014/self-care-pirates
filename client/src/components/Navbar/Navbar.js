@@ -45,11 +45,11 @@ const NavBar = () => {
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
+          <Button className="SearchBtn" variant="outline-success">Search</Button>
         </Form>
         
 
-        <Button variant="outline-success"><Link to='/Register' >Login / Sign Up</Link></Button>
+        <Button className="LoginBtn" variant="outline-success"><Link to='/Register' className="RegisterBtn">Login / Sign Up</Link></Button>
 
         
       </Navbar.Collapse>
