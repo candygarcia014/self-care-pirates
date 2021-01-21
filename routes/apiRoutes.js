@@ -25,7 +25,6 @@ router.post("/signup", (req, res) => {
 //login route 
 router.post("/login", passport.authenticate("local"), (req, res) => { 
     const { user } = req;
-    // delete user.password;
     res.json(user)
 });
 //logout route 
@@ -37,5 +36,11 @@ router.get("/logout", (req,res) => {
 router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
 });
+
+router.post("/comments", (req, res) => {
+    User.find().then(user => res.json(user));
+});
+
+
 
 module.exports = router;
