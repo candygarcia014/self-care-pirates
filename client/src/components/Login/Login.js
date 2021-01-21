@@ -21,7 +21,6 @@ const Login = (props) => {
       <Input type="email" name="email" id="mail" placeholder="Email" onChange = { e => setEmail (e.target.value)} value = {email}/>
     </FormGroup>
     </Row>
-
     <Row form>
     <FormGroup>
       <Label for="password">Password </Label>

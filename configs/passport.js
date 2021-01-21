@@ -11,9 +11,9 @@
             if (!user.email) {
               return done(null, false, { message: 'Incorrect email.' });
             }
-            // if (!(user.verifyPassword(password))) {
-            //   return done(null, false, { message: 'Incorrect password.' });
-            // }
+            if (!(user.verifyPassword(password))) {
+              return done(null, false, { message: 'Incorrect password.' });
+            }
             return done(null, user);
           }).catch(err => {
             if (err) { return done(err); }
