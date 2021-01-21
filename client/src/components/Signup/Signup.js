@@ -52,8 +52,8 @@ const Signup = (props) => {
           </FormGroup>
         </Col>
       </Row>
-      <Button onClick = {handleSubmit}>Sign up</Button>
-    {/* //sigin button that redirects the  user to the login page if they hve already signed up*/}
+      <Button onClick = {handleSubmit}>Sign up</Button> {}  
+    {/* //Sign in button that redirects the  user to the login page if they hve already signed up*/}
       <Button onClick = {handleSubmit}>Log in</Button>
     </Form>
   );

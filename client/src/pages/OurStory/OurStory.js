@@ -4,8 +4,7 @@ import DevCard from './../../components/DevCard/DevCard';
 import { Container, Row, Col } from 'react-bootstrap';
 import DevImage from './../../components/DevImage/DevImage'
 
-
-const OurStory = () => {
+const OurStory = (props) => {
   return (
   <Container>
     <Row>
