@@ -1,3 +1,13 @@
 .NavBar { 
     margin-left: auto; 
 } 
+
+.navbar {
+    background: #032626;
+    border: 1px solid rgba(0, 0, 0, 0.53);
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
