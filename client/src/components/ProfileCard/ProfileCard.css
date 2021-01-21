@@ -34,8 +34,9 @@
     margin-top: 1rem;
 }
 
-.card {
+.BioCard {
     padding: 2rem;
     text-align: center;
+    width: 50%;
 }
 
