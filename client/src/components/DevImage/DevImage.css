@@ -5,8 +5,8 @@
     left: 248px;
     top: 886px;
     border-radius: 50%;
-    animation: swing ease-in-out 3s infinite alternate;
-    transform-origin: center -10px;
+    animation: swing ease-in-out 5s infinite alternate;
+    /* transform-origin: center -10px; */
     float:left;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 
