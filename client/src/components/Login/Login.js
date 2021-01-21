@@ -12,9 +12,6 @@ const Login = (props) => {
     email: email,
     password: password,
   }).then(res => {console.log(res)})}
-
-
-
   return (
     <Form>
       

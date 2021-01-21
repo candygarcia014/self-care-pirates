@@ -1,33 +1,11 @@
 import React from 'react';
-<<<<<<< HEAD
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
-=======
 import StoryCard from './../../components/StoryCard/StoryCard';
 import DevCard from './../../components/DevCard/DevCard';
 import { Container, Row, Col } from 'react-bootstrap';
 import DevImage from './../../components/DevImage/DevImage'
 
->>>>>>> 98fa09311b01ca823b0dd9957bb5636791b4817b
-
-
 const OurStory = (props) => {
   return (
-<<<<<<< HEAD
-    <div>
-      <Card>
-        <CardImg src="https://raw.githubusercontent.com/ShanniSnax/self-care-pirates/main/client/src/components/images/AvatarExample.jpgZ" alt="Card image cap" />
-        <CardBody>
-          <CardTitle tag="h5">Card title</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
-        </CardBody>
-      </Card>
-    </div>
-=======
   <Container>
     <Row>
       <Col xs={8}>
@@ -83,7 +61,6 @@ const OurStory = (props) => {
       </Col>
     </Row>
   </Container>
->>>>>>> 98fa09311b01ca823b0dd9957bb5636791b4817b
   );
 };
 
