@@ -26,7 +26,9 @@ router.post("/signup", (req, res) => {
 router.post("/login", passport.authenticate("local"), (req, res) => { 
     const { user } = req;
     // delete user.password;
+    console.log(req.body)
     res.json(user)
+
 });
 //logout route 
 router.get("/logout", (req,res) => {

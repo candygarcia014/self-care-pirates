@@ -4,15 +4,16 @@
       { User } = db;
 
       passport.use(new LocalStrategy(
-        function(username, password, done) {
-          User.findOne({ username }).select("-password").then((user) => {
+        function(email, password, done) {
+          console.log(email, password)
+          User.findOne({ email }).then((user) => {
             // if (err) { return done(err); }
-            if (!user) {
-              return done(null, false, { message: 'Incorrect username.' });
+            if (!user.email) {
+              return done(null, false, { message: 'Incorrect email.' });
             }
-            if (!(user.verifyPassword(password))) {
-              return done(null, false, { message: 'Incorrect password.' });
-            }
+            // if (!(user.verifyPassword(password))) {
+            //   return done(null, false, { message: 'Incorrect password.' });
+            // }
             return done(null, user);
           }).catch(err => {
             if (err) { return done(err); }
