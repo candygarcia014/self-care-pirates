@@ -16,22 +16,29 @@
     font-size: smaller;
 }
 
-.SearchBtn {
-    color: white ;
+#SearchBar {
+    background-color: rgba(108, 108, 108, 0.5);
+    color: white;
     font-family: 'Proza Libre', sans-serif;
     font-size: smaller;
-
 }
+
 
 .LoginBtn {
     color: white !important;
     font-family: 'Proza Libre', sans-serif;
     font-size: smaller;
-    margin-left: 1rem;
+
 }
 
 .RegisterBtn {
     color: white;
+    font-family: 'Proza Libre', sans-serif;
+
+}
+
+.RegisterBtn:hover {
+    color: lightgrey;
     font-family: 'Proza Libre', sans-serif;
 
 }
