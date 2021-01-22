@@ -37,12 +37,12 @@ const OurStory = () => {
       </Col>
     </Row>
     
-    {/* Lawrence's Info */}
+    {/* Laurynas's Info */}
     <Row>
       <Col xs={6}>
         <DevCard 
-          name="Lawrence"
-          github="lawrence's github" />
+          name="Laurynas Juzva"
+          github="https://github.com/Juzva8" />
       </Col>
 
       <Col>
@@ -58,8 +58,8 @@ const OurStory = () => {
 
       <Col>
         <DevCard 
-          name="Tammy"
-          github="tammy's github" />
+          name="Tammy Nguyen"
+          github="https://github.com/ttngu" />
       </Col>
     </Row>
 
@@ -67,8 +67,8 @@ const OurStory = () => {
     <Row>
       <Col xs={8}>
         <DevCard 
-          name="Shanni"
-          github="shanni's github"/>
+          name="Shanni Suissa"
+          github="https://github.com/ShanniSnax"/>
       </Col>
 
       <Col>
@@ -84,8 +84,8 @@ const OurStory = () => {
 
         <Col>
           <DevCard 
-            name="Cathlene"
-            github="cathlene's github" />
+            name="Cathlene Converse"
+            github="https://github.com/cgconverse" />
         </Col>
       </Row>
     
