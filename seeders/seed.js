@@ -11,7 +11,6 @@ let commentsSeed = [
     day: new Date().setDate(new Date().getDate()-10),
         title: "Beards on a budget",
         body: "Example of comment about beards and the products to use... ",
-      
   },
   {
     day: new Date().setDate(new Date().getDate()-9),
