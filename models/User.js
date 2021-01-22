@@ -35,8 +35,7 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    // posts: [posts collection]
-    // Create a post collection schema
+
 });
 
 userSchema.pre('save', function() {
