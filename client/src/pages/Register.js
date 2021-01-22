@@ -12,7 +12,7 @@ const Register = () => {
         height: '90vh'
       }}
     >
-      <h1><Signup /></h1>
+      <h1><Signup/></h1>
     </div>
   );
 };

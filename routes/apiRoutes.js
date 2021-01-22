@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require("../models/index");
+const { User, Comments } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 router.post("/signup", (req, res) => {
@@ -36,4 +36,11 @@ router.get("/logout", (req,res) => {
 router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
 });
+
+router.get("/comments", (req, res) => {
+    Comments.find().then(Comments => res.json(Comments));
+});
+
+
+
 module.exports = router;

@@ -3,7 +3,7 @@ const mongoose = require('mongoose'),
       
 
 const postsSchema = new Schema({
-    comments: {
+    posts: {
         type: String,
         required: false,
     },
@@ -15,8 +15,11 @@ const postsSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    // posts: [posts collection]
-    // Create a post collection schema
+    comments: {
+        type: String,
+        required: false,
+    },
+    
 });
 
 const Posts = mongoose.model("Posts", postsSchema);
