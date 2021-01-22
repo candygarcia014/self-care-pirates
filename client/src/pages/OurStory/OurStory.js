@@ -2,7 +2,7 @@ import React from 'react';
 import StoryCard from './../../components/StoryCard/StoryCard';
 import DevCard from './../../components/DevCard/DevCard';
 import { Container, Row, Col } from 'react-bootstrap';
-import DevImage from './../../components/DevImage/DevImage'
+import DevImage from './../../components/DevImage/DevImage';
 
 
 const OurStory = () => {

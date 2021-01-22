@@ -7,7 +7,7 @@ import Forum from './pages/Forum/Forum';
 import Register from './pages/Register';
 import User from './pages/User';
 import OurStory from './pages/OurStory/OurStory';
-import Login from './components/Login/Login'
+import Login from './components/Login/Login';
 
 
 

@@ -14,7 +14,7 @@ const LogoCropped = require('../images/SCPCropped.png')
 const NavBar = () => {
   return (
  
-      <Nav>
+      <Nav id="nav-bar">
         <NavLink to='/' activeStyle>
           <img src ={LogoCropped.default} alt="logo" style={{"height":"3rem", "margin":"0.5rem"}}/>
         </NavLink>
