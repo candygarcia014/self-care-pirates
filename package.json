@@ -25,11 +25,13 @@
   },
   "homepage": "https://github.com/ShanniSnax/self-care-pirates#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.11.12",
+    "node-sass": "^5.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
