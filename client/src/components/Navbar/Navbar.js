@@ -46,7 +46,6 @@ const NavBar = () => {
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button className="SearchBtn" variant="outline-secondary">Search</Button>
         </Form>
         
 
