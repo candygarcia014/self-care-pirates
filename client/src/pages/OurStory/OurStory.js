@@ -8,59 +8,78 @@ import DevImage from './../../components/DevImage/DevImage'
 const OurStory = () => {
   return (
   <Container>
+  {/* Card for Our Story */}
     <Row>
-      <Col xs={8}>
-      {/* Card for Our Story */}
+      <Col xs={8} md={8}>
         <StoryCard />
       </Col>
     </Row>
 
+    {/* Candy's Card */}
     <Row>
-      <Col xs={8}>
-        {/* Candy's Card */}
-       <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
-        <DevCard 
-        name="Candy"
-        github="candy's github" 
-        />
-      </Col>
-
-      <Col xs={8}>
-       <div className="image">
-          {/* Lawrence's Card */}
-        <DevCard 
-        name="Lawrence"
-        github="lawrence's github"
-          />
-          
-        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/></div>
-      </Col>
-
-      <Col xs={8}>
-          {/* Tammy's Card */}
-          <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
-        <DevCard 
-        name="Tammy"
-        github="tammy's github"
-          />
-      </Col>
-
-      <Col xs={8}>
-        {/* Shanni's Card */}
-        <DevCard 
-        name="Shanni"
-        github="shanni's github"/>
+      <Col xs={6}>
         <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
       </Col>
-
+      
       <Col xs={8}>
-        {/* Cathlene's Card */}
-        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
         <DevCard 
-        name="Cathlene"
-        github="cathlene's github"/>
+          name="Candy"
+          github="candy's github" />
       </Col>
     </Row>
+    
+    {/* Lawrence's Card */}
+    <Row>
+      <Col xs={6}>
+        <DevCard 
+          name="Lawrence"
+          github="lawrence's github" />
+      </Col>
+
+      <Col>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+      </Col>
+    </Row>
+
+    {/* Tammy's Card */}
+    <Row>
+      <Col xs={8}>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+      </Col>
+
+      <Col>
+        <DevCard 
+          name="Tammy"
+          github="tammy's github" />
+      </Col>
+    </Row>
+
+      {/* Shanni's Card */}
+    <Row>
+      <Col xs={8}>
+        <DevCard 
+          name="Shanni"
+          github="shanni's github"/>
+      </Col>
+
+      <Col>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+      </Col>
+    </Row>
+
+       {/* Cathlene's Card */}
+      <Row>
+        <Col xs={8}>
+          <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+        </Col>
+
+        <Col>
+          <DevCard 
+            name="Cathlene"
+            github="cathlene's github" />
+        </Col>
+      </Row>
+    
   </Container>
   );
 };

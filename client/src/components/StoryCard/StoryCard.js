@@ -1,9 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
+
 const StoryCard = () => {
     return (
-<Card >
+  
+  <Card className="story-card">
   <Card.Body>
     <Card.Title>Our Story</Card.Title>
     <Card.Text>
@@ -12,6 +14,7 @@ const StoryCard = () => {
     </Card.Text>
   </Card.Body>
 </Card>
+
     )};
 
 export default StoryCard;

@@ -21,28 +21,28 @@ import "./DevCard.css"
 //     }
 //   };
 
-const styles = {
-    image: {
-        width: '243px', 
-        height: '240px', 
-        top: '886px',
-        left: '248px',
-        radius: '256px'
-    }
-};
+// const styles = {
+//     image: {
+//         width: '243px', 
+//         height: '240px', 
+//         top: '886px',
+//         left: '248px',
+//         radius: '256px'
+//     }
+// };
 
-const Image = () => {
-    return (
-        <Container>
-        <img style={styles.image} src="https://picsum.photos/200"/>
-        </Container>
-    )
-};
+// const Image = () => {
+//     return (
+//         <Container>
+//         <img style={styles.image} src="https://picsum.photos/200"/>
+//         </Container>
+//     )
+// };
 
 const DevCard = (props) => {
     return (
         
-<Card style={{ width: '50rem' }}>
+<Card >
   {/* <Card.Img style={styles.image} variant="top" src="https://picsum.photos/200" /> */}
   <Card.Body>
     <Card.Title>{props.name}</Card.Title>
