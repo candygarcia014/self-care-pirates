@@ -1,20 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import '../Navbar/Navbar.css';
-// import {
-//   Nav,
-//   NavLink,
-//   Bars,
-//   NavMenu,
-//   NavBtn,
-//   NavBtnLink
-// } from './NavbarElements';
 import '../images/SCP.png';
 import {Navbar, Nav, Form, FormControl, Button, NavLink} from 'react-bootstrap';
+import Api from "../../utils/Api"
+import { useHistory, Redirect, useLocation} from 'react-router-dom';
 
 const LogoCropped = require('../images/SCPCropped.png')
 
 const NavBar = () => {
+  //Setting is loggedin as false by default
+  const [ isLoggedin, setIsloggedin] = useState(false);
+  const history = useHistory();
+  let location = useLocation();
+
+
+  useEffect(() =>{
+if (localStorage.getItem("token")) {
+  setIsloggedin(true)
+} else {
+  setIsloggedin(false)
+}
+  }, 
+  [location])
+
+  //removing token then redirecting to logiin if they logout 
+  const logout = () =>{
+    localStorage.removeItem ("token")
+    Api.logout().then (res =>{
+history.push ("/login")
+    })
+  }
+  
   return (
 
 
@@ -48,9 +65,10 @@ const NavBar = () => {
           <FormControl type="text" placeholder="Search" className="mr-sm-2" id="SearchBar" />
         </Form>
         
-
-        <Button className="LoginBtn" variant="outline-secondary"><Link to='/Register' className="RegisterBtn">Login / Sign Up</Link></Button>
-
+{!isLoggedin ? (
+        <Button className="LoginBtn" variant="outline-secondary"><Link to='/Register' className="RegisterBtn">Login / Sign Up</Link></Button> 
+): ( //logout button shows up if they are logged in 
+        <Button className="LoginBtn" variant="outline-secondary" onClick={logout}>Logout</Button>)}
         
       </Navbar.Collapse>
     </Navbar>

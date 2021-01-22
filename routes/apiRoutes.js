@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User, Comments } = require("../models/index");
+const jwt = require("../configs/jwt");
+const { User } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 router.post("/signup", (req, res) => {
@@ -23,10 +24,8 @@ router.post("/signup", (req, res) => {
 });
 //login route 
 router.post("/login", passport.authenticate("local"), (req, res) => { 
-    const { user } = req;
-    // delete user.password;
-    console.log(req.body)
-    res.json(user)
+    const { id } = req.user
+    res.status(200).json({ token: jwt.sign({id}), token_type: "Bearer" });
 });
 //logout route 
 router.get("/logout", (req,res) => {
@@ -37,10 +36,5 @@ router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
 });
 
-router.get("/comments", (req, res) => {
-    Comments.find().then(Comments => res.json(Comments));
-});
-
-
-
 module.exports = router;
+

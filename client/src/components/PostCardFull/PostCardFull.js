@@ -1,13 +1,12 @@
 import React from 'react';
-import './PostCard.css';
+import './PostCardFull.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Card from 'react-bootstrap/Card';
 
 
 
-const PostCard = (props) => {
-    const truncatedPost = props.body?.substring(0, 200) + "...";
+const PostCardFull = (props) => {
     return (
         <Card className="p-0 my-2">
         <Card.Body>
@@ -17,7 +16,7 @@ const PostCard = (props) => {
                 {props.date} | {props.time} <span className="meta-data-username">{props.username}</span>
             </Card.Subtitle>
             <Card.Text>
-                {truncatedPost}
+                {props.body}
             </Card.Text>
             <ButtonGroup className="comment-share-button">
             <Button as="input" type="button" value="Comment" data-id={props.id}/>{' '}
@@ -27,4 +26,4 @@ const PostCard = (props) => {
         </Card>
     )};
 
-export default PostCard;
+export default PostCardFull;

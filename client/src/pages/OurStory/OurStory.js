@@ -7,61 +7,90 @@ import DevImage from './../../components/DevImage/DevImage';
 const OurStory = (props) => {
   return (
   <Container>
+    
+    <div>
+      <h1>Our Story</h1>
+    </div>
+
+    {/* Card for Our Story */}
     <Row>
-      <Col xs={8}>
-      {/* Card for Our Story */}
+      <Col xs={8} md={8}>
         <StoryCard />
       </Col>
     </Row>
 
+    <div>
+      <h1>Meet the Developers!</h1>
+    </div>
+
+    {/* Candy's Info */}
     <Row>
-      <Col xs={8}>
-        {/* Candy's Card */}
-       <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
-        <DevCard 
-        name="Candy"
-        github="candy's github" 
-        />
-        
-      </Col>
-
-      <Col xs={8}>
-       <div className="image">
-          {/* Lawrence's Card */}
-        <DevCard 
-        name="Lawrence"
-        github="lawrence's github"
-          />
-          
-        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/></div>
-      </Col>
-
-      <Col xs={8}>
-          {/* Tammy's Card */}
-          <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
-        <DevCard 
-        name="Tammy"
-        github="tammy's github"
-          />
-      </Col>
-
-      <Col xs={8}>
-        {/* Shanni's Card */}
-        <DevCard 
-        name="Shanni"
-        github="shanni's github"/>
+      <Col xs={6}>
         <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
       </Col>
-
+      
       <Col xs={8}>
-        {/* Cathlene's Card */}
-        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
         <DevCard 
-        name="Cathlene"
-        github="cathlene's github"/>
+          name="Candy Garcia"
+          github="https://github.com/candygarcia014" />
+
       </Col>
     </Row>
+    
+    {/* Laurynas's Info */}
+    <Row>
+      <Col xs={6}>
+        <DevCard 
+          name="Laurynas Juzva"
+          github="https://github.com/Juzva8" />
+      </Col>
+
+      <Col>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+      </Col>
+    </Row>
+
+    {/* Tammy's Info */}
+    <Row>
+      <Col xs={8}>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+      </Col>
+
+      <Col>
+        <DevCard 
+          name="Tammy Nguyen"
+          github="https://github.com/ttngu" />
+      </Col>
+    </Row>
+
+    {/* Shanni's Info */}
+    <Row>
+      <Col xs={8}>
+        <DevCard 
+          name="Shanni Suissa"
+          github="https://github.com/ShanniSnax" />
+      </Col>
+
+      <Col>
+        <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+      </Col>
+    </Row>
+
+      {/* Cathlene's Info */}
+      <Row>
+        <Col xs={8}>
+          <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
+        </Col>
+
+        <Col>
+          <DevCard 
+            name="Cathlene Converse"
+            github="https://github.com/cgconverse" />
+        </Col>
+      </Row>
+    
   </Container>
+
   );
 };
 
