@@ -20,6 +20,10 @@ const OurStory = () => {
       </Col>
     </Row>
 
+    <div>
+      <h1>Meet the Developers!</h1>
+    </div>
+
     {/* Candy's Info */}
     <Row>
       <Col xs={6}>
