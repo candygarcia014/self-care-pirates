@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require("../models/index");
+const { User, Comments } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 router.post("/signup", (req, res) => {
@@ -24,11 +24,8 @@ router.post("/signup", (req, res) => {
 //login route 
 router.post("/login", passport.authenticate("local"), (req, res) => { 
     const { user } = req;
-<<<<<<< HEAD
-=======
     // delete user.password;
     console.log(req.body)
->>>>>>> 082ef613aa63d9ea4b439236963a933bdb4bb619
     res.json(user)
 });
 //logout route 
@@ -39,14 +36,11 @@ router.get("/logout", (req,res) => {
 router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
 });
-<<<<<<< HEAD
 
-router.post("/comments", (req, res) => {
-    User.find().then(user => res.json(user));
+router.get("/comments", (req, res) => {
+    Comments.find().then(Comments => res.json(Comments));
 });
 
 
 
-=======
->>>>>>> 082ef613aa63d9ea4b439236963a933bdb4bb619
 module.exports = router;

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const CommentsSchema = new Schema({
   title: String,
-  body: String
+  body: String,
+  day: Date
 });
 
 const Comments = mongoose.model("Comments", CommentsSchema);
