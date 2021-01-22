@@ -3,12 +3,10 @@
 .tag-spacing {
     border-radius: 5px !important;
     /* background-color: white !important; */
-
 }
 
 .btn-group-toggle {
     display: flex;
     justify-content: center;
 }
-
 
