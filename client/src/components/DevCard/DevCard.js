@@ -50,6 +50,7 @@ const DevCard = (props) => {
     <li>{props.github}</li>
     </Card.Text>
     </Card.Body>
+
 </Card>
     )};
 
