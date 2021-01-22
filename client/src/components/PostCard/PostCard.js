@@ -1,27 +1,29 @@
 import React from 'react';
+import './PostCard.css';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Card from 'react-bootstrap/Card';
-import '../PostCard/PostCard.css';
-import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 
-const PostCard = () => {
+
+const PostCard = (props) => {
+    const truncatedPost = props.body?.substring(0, 200) + "...";
     return (
         <Card className="p-0 my-2">
         <Card.Body>
-            <Card.Title>POST TITLE</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted meta-data">January, 13th 2021 | 10:13pm USERNAME</Card.Subtitle>
+            <Card.Title>{props.title}</Card.Title>
+            <Card.Subtitle 
+                className="mb-2 text-muted meta-data-date-time meta-data">
+                {props.date} | {props.time} 
+                <span className="meta-data-username">{props.username}</span>
+            </Card.Subtitle>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                {truncatedPost}
             </Card.Text>
-            <ButtonGroup>
-            <Button as="input" type="button" value="Comment" />{' '}
+            <ButtonGroup className="comment-share-button">
+            <Button as="input" type="button" value="Comment" data-id={props.id}/>{' '}
             <Button as="input" type="submit" value="Share" />{' '}
-            </ButtonGroup>
-           
-
-
+            </ButtonGroup>           
         </Card.Body>
         </Card>
     )};
