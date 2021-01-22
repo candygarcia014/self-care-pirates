@@ -1,9 +1,7 @@
 const mongoose = require('mongoose'),
       { Schema } = mongoose,
       bcrypt = require('bcrypt');
-
 const SALT_ROUNDS = 6;
-
 const userSchema = new Schema({
     firstName: {
         type: String,
@@ -28,15 +26,15 @@ const userSchema = new Schema({
         type: String,
         required: "Password is required!",
         trim: true,
-        validate: [({ length }) => length >= 6, "Please type a longer Password"],
-        select: false
+        validate: [({ length }) => length >= 6, "Please type a longer Password"]
     },
     date: {
         type: Date,
         default: Date.now,
     },
+    // posts: [posts collection]
+    // Create a post collection schema
 });
-
 userSchema.pre('save', function() {
     if(!this.isModified('password')) {
         return Promise.resolve();
@@ -48,11 +46,8 @@ userSchema.pre('save', function() {
         this.password = hash
     });
 });
-
-userSchema.methods.verifyPassword = async function(password) {
+userSchema.methods.verifyPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
-};
-
+  };
 const User = mongoose.model("User", userSchema);
-
 module.exports = User;
