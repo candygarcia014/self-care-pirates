@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/esm/Card';
 
 import '../ProfileCard/ProfileCard.css'
 import Avatar from './Avatar';
+import PhotoModal from '../PhotoModal/PhotoModal';
 
 
 function ProfileCard() {
@@ -14,6 +15,7 @@ function ProfileCard() {
             <Row>
                 <Col xs={12}>
                     <Avatar />
+                    <PhotoModal />
                 </Col>
             </Row>
 

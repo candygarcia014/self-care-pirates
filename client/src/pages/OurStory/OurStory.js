@@ -22,6 +22,7 @@ const OurStory = (props) => {
         name="Candy"
         github="candy's github" 
         />
+        
       </Col>
 
       <Col xs={8}>
