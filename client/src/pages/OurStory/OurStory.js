@@ -33,6 +33,7 @@ const OurStory = (props) => {
         <DevCard 
           name="Candy Garcia"
           github="https://github.com/candygarcia014" />
+
       </Col>
     </Row>
     
