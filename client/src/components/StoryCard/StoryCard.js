@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const StoryCard = () => {
     return (
   
-  <Card className="story-card">
+  <Card className="p-3 my-0">
   <Card.Body>
     <Card.Text>
       Some quick example text to build on the card title and make up the bulk of

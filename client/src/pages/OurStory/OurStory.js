@@ -68,7 +68,7 @@ const OurStory = () => {
       <Col xs={8}>
         <DevCard 
           name="Shanni Suissa"
-          github="https://github.com/ShanniSnax"/>
+          github="https://github.com/ShanniSnax" />
       </Col>
 
       <Col>
