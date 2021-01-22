@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import "./DevCard.css"
 
 // const styles = {
@@ -44,7 +44,7 @@ const DevCard = (props) => {
         
 <Card >
   {/* <Card.Img style={styles.image} variant="top" src="https://picsum.photos/200" /> */}
-  <Card.Body>
+    <Card.Body>
     <Card.Title>{props.name}</Card.Title>
     <Card.Text>
     <li>{props.github}</li>

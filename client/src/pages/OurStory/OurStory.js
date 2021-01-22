@@ -8,14 +8,19 @@ import DevImage from './../../components/DevImage/DevImage'
 const OurStory = () => {
   return (
   <Container>
-  {/* Card for Our Story */}
+    
+    <div>
+      <h1>Our Story</h1>
+    </div>
+
+    {/* Card for Our Story */}
     <Row>
       <Col xs={8} md={8}>
         <StoryCard />
       </Col>
     </Row>
 
-    {/* Candy's Card */}
+    {/* Candy's Info */}
     <Row>
       <Col xs={6}>
         <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
@@ -23,12 +28,12 @@ const OurStory = () => {
       
       <Col xs={8}>
         <DevCard 
-          name="Candy"
-          github="candy's github" />
+          name="Candy Garcia"
+          github="https://github.com/candygarcia014" />
       </Col>
     </Row>
     
-    {/* Lawrence's Card */}
+    {/* Lawrence's Info */}
     <Row>
       <Col xs={6}>
         <DevCard 
@@ -41,7 +46,7 @@ const OurStory = () => {
       </Col>
     </Row>
 
-    {/* Tammy's Card */}
+    {/* Tammy's Info */}
     <Row>
       <Col xs={8}>
         <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
@@ -54,7 +59,7 @@ const OurStory = () => {
       </Col>
     </Row>
 
-      {/* Shanni's Card */}
+    {/* Shanni's Info */}
     <Row>
       <Col xs={8}>
         <DevCard 
@@ -67,7 +72,7 @@ const OurStory = () => {
       </Col>
     </Row>
 
-       {/* Cathlene's Card */}
+      {/* Cathlene's Info */}
       <Row>
         <Col xs={8}>
           <DevImage source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_QyQeJ7Wkfu604EQZAbR5RcC-vFl6UDV1Q&usqp=CAU"/>
@@ -81,6 +86,7 @@ const OurStory = () => {
       </Row>
     
   </Container>
+
   );
 };
 
