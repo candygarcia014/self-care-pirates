@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
+// import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 import Button from 'react-bootstrap/Button';
 import { Row, Col } from 'react-bootstrap';
 import './MakePost.css';
