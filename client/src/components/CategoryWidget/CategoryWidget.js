@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import '../CategoryWidget/CategoryWidget.css';
+import './CategoryWidget.css';
 import Tags from '../Tags/Tags';
 
 
@@ -10,8 +10,6 @@ const CategoryWidget = () => {
         <Card.Body>
             <Card.Title className="widget-title">CATEGORIES</Card.Title>
             <Tags />
-
-
 
         </Card.Body>
         </Card>
