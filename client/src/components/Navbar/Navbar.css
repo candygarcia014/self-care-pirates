@@ -16,6 +16,11 @@
     font-size: smaller;
 }
 
+.nav-link:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 #SearchBar {
     background-color: rgba(108, 108, 108, 0.5);
     color: white;
