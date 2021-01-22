@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import BackToTop from '../../components/BackToTop/BackToTop';
 import './Forum.css';
 import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
+import MakePost from '../../components/MakePost/MakePost';
 
 //fake data placeholders 
 
@@ -70,20 +71,26 @@ const Forum = () => {
           </Row>
         </Col>
 
-        {/* truncated posts */}
+        {/* posts */}
         <Col xs={8}>
-            {fakeData.map(({ title, body, username, date, time, id}) => (
             <Row>
-            <Col xs={12}>
-              <PostCard 
-                id={id}
-                title={title} 
-                date={date} 
-                time={time} 
-                username={username} 
-                body={body} 
-             />
-            </Col>
+              <Col xs={12}>
+                <MakePost />
+              </Col>
+            </Row>
+            
+            {fakeData.map(({title, body, username, date, time, id}) => (           
+            <Row>
+              <Col xs={12}>
+                <PostCard 
+                  id={id}
+                  title={title} 
+                  date={date} 
+                  time={time} 
+                  username={username} 
+                  body={body} 
+                />
+              </Col>
             </Row>
           ))}
         </Col>
