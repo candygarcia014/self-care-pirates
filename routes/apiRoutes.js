@@ -34,6 +34,7 @@ router.get("/logout", (req,res) => {
 });
 router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
+    
 });
 
 module.exports = router;

@@ -9,6 +9,11 @@ import PhotoModal from '../PhotoModal/PhotoModal';
 
 
 function ProfileCard() {
+   
+    // db.getCollection('users').find({})
+    const username = localStorage.getItem("username");
+    console.log(username);
+
     return (
         <div className="Container">
             {/* User Photo */}
@@ -23,7 +28,7 @@ function ProfileCard() {
             <Row>
                 <Col xs={12}>
                     <div className="Username">
-                        USERNAME
+                        {username.toUpperCase()}
                     </div> 
                 </Col>
             </Row>
