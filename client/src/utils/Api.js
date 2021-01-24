@@ -9,5 +9,9 @@ export default {
     },
     logout: function() {
         return axios.get("/api/logout");
+    },
+    // Userpage
+    name: function(data) {
+        return axios.get("/api/user", data);
     }
 }

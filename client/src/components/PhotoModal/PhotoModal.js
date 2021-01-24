@@ -1,5 +1,6 @@
 import React,{useState}  from 'react'
 import {Button, Modal, Form} from 'react-bootstrap/';
+import '../PhotoModal/PhotoModal.css'
 
 
 function PhotoModal() {
@@ -10,7 +11,7 @@ function PhotoModal() {
   
     return (
       <>
-        <Button variant="secondary" onClick={handleShow} className="AddPhotoBtn">
+        <Button variant="secondary" onClick={handleShow} className="PhotoBtn">
           Add
         </Button>
   
