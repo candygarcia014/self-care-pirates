@@ -17,8 +17,8 @@ const Login = (props) => {
       console.log(res);
       if (res.data.token) {
         localStorage.setItem("token", JSON.stringify(res.data.token));
-        // Stores the username for the profile page
-        // localStorage.setItem("username", JSON.parse(res.config.data).username);
+        
+        // Stores the username and full name for the profile page
         localStorage.setItem("username", (res.config.data));
 
         history.push("/user");

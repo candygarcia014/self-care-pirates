@@ -12,10 +12,8 @@ import PhotoModal from '../PhotoModal/PhotoModal';
 function ProfileCard() {
     const[name,setName]=useState();
 
-    // db.getCollection('users').find({})
     const username = JSON.parse(localStorage.getItem("username")).username;
     const password = JSON.parse(localStorage.getItem("username")).password;
-    console.log(username);
     
     let FirstName = "";
 
@@ -25,7 +23,7 @@ function ProfileCard() {
     }).then(steve => {
         setName(steve.data[0].firstName+" "+steve.data[0].lastName);
         FirstName = steve.data[0].firstName;
-        console.log(steve.data[0].firstName)})
+    })
 
 
 
@@ -40,7 +38,7 @@ function ProfileCard() {
                 </Col>
             </Row>
 
-            {/* Username, this.uppercase(data.name.username)*/}
+            {/* Username*/}
             <Row>
                 <Col xs={12}>
                     <div className="Username">
@@ -49,14 +47,10 @@ function ProfileCard() {
                 </Col>
             </Row>
 
-            {/* First/Last Name, this.uppercase(data.name.username)*/}
+            {/* Full Name*/}
             <Row>
                 <Col xs={12}>
                     <div className="FullName">
-
-                        {/* {this.uppercase(data.name.first) + " " + this.uppercase(data.name.last)} */}
-                        {/* Placeholder: */}
-                        {/* Jean-Luc Pikachu */}
                         {name}
                     </div> 
                 </Col>
