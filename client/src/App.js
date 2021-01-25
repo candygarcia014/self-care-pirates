@@ -11,11 +11,6 @@ import PostPage from './pages/PostPage/PostPage';
 import Login from './components/Login/Login'
 import ProtectedRoute from "./components/ProtectedRoute";
 
-class App extends Component {
-  state = {
-    developers
-  };
-}
 
 function App() {
   return (
