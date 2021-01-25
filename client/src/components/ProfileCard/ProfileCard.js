@@ -1,38 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import Card from 'react-bootstrap/esm/Card';
-
+import Api from "../../utils/Api";
+import decode from 'jwt-decode';
 import '../ProfileCard/ProfileCard.css'
 import Avatar from './Avatar';
+import PhotoModal from '../PhotoModal/PhotoModal';
 
 
 function ProfileCard() {
+    const[userInfo, setUserInfo]=useState();
+
+    // const username = JSON.parse(localStorage.getItem("username")).username;
+    
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const getUser = async () => {
+        const { id } = decode(localStorage.getItem("token"));
+        const { data } = await Api.name(id);
+        setUserInfo(data);
+    };
+
+    if(!userInfo) return <h1>Loading...</h1>
+    const { firstName, lastName, username } = userInfo;
+
+    const fullName = (user) => {
+        return `${user.firstName} ${user.lastName}`
+    }
+
     return (
         <div className="Container">
             {/* User Photo */}
             <Row>
                 <Col xs={12}>
                     <Avatar />
+                    <PhotoModal />
                 </Col>
             </Row>
 
-            {/* Username, this.uppercase(data.name.username)*/}
+            {/* Username*/}
             <Row>
                 <Col xs={12}>
                     <div className="Username">
-                        USERNAME
+                        {username.toUpperCase()}
                     </div> 
                 </Col>
             </Row>
 
-            {/* First/Last Name, this.uppercase(data.name.username)*/}
+            {/* Full Name*/}
             <Row>
                 <Col xs={12}>
                     <div className="FullName">
-                        {/* {this.uppercase(data.name.first) + " " + this.uppercase(data.name.last)} */}
-                        {/* Placeholder: */}
-                        Jean-Luc Pikachu
+                        {fullName(userInfo)}
                     </div> 
                 </Col>
             </Row>

@@ -1,14 +1,16 @@
 import React, { useState, useEffect} from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { useHistory } from 'react-router-dom';
 import './Signup.css';
 import Api from "../../utils/Api"
 
 const Signup = (props) => {
   const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userName, setUserName] = useState("")
+  const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault()
   Api.signup({ 
@@ -17,8 +19,21 @@ const Signup = (props) => {
     email: email,
     password: password,
     username: userName
-  }).then(res => {console.log(res)}) 
-  }
+  }).then(res => {
+    console.log(res)
+    const userLoginInfo = {
+      username: userName,
+      password,
+    };
+    Api.login(userLoginInfo).then(res => {
+      if(res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", JSON.stringify(userLoginInfo));
+        history.push("/forum")
+      }
+    })
+  }) 
+  };
 
   return (
     <Form>
@@ -52,9 +67,10 @@ const Signup = (props) => {
           </FormGroup>
         </Col>
       </Row>
+      {/* //sign up page redirects to forum page  */}
       <Button onClick = {handleSubmit}>Sign up</Button> {}  
     {/* //Sign in button that redirects the  user to the login page if they hve already signed up*/}
-      <Button onClick = {handleSubmit}>Log in</Button>
+      <Button onClick = {() => history.push("/login")}>Log in</Button>
     </Form>
   );
 }
