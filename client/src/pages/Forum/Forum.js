@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PostCard from './../../components/PostCard/PostCard';
 import CategoryWidget from './../../components/CategoryWidget/CategoryWidget';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -54,8 +54,31 @@ import Api from "../../utils/Api"
 // ]
 
 const Forum = () => {
-  const data = Api.getPosts()
-  console.log(data)
+  const [data, setData] = useState();
+  const [username, setUsername] = useState();
+//useEffect prevents it from running more than once 
+  useEffect(() => {
+    getAllPost();
+    setUsername(JSON.parse(localStorage.getItem('username')))
+  }, []);
+//this is the API to get all posts on forum pg
+  const getAllPost = async () => {
+    try {
+      const { data } = await Api.getPosts();
+      setData(data);
+    } catch(err) {
+      console.log(err)
+    }
+  };
+  // const data = Api.getPosts()
+  //add loading component - loading mimage 
+
+  //to check if data is poppulating, if not populating it will show the loading componenet  
+  if(!data) return <h1>Loading...</h1>
+  if(!username) return <h1>Loading...</h1>
+
+  const sortedArray = data;
+
   return (
     <Container fluid className="forum-container">
       <Row>
@@ -78,14 +101,15 @@ const Forum = () => {
         <Col xs={8}>
             <Row>
               <Col xs={12}>
-                <MakePost />
+                <MakePost username={username.username}/>
               </Col>
             </Row>
             {/* //these are the requirements for the posts */}
-            {data.map(({title, body, username, date, id}) => (           
+            {sortedArray.map(({title, body, username, date, id}) => (           
             <Row>
               <Col xs={12}>
-                <PostCard 
+                <PostCard
+                  key={id} 
                   id={id}
                   title={title} 
                   date={date} 

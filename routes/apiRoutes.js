@@ -32,11 +32,13 @@ router.get("/logout", (req,res) => {
     req.logout();
     res.json("User logged out")
 });
+
 router.get("/user", isUserAuthenticated, (req, res) => {
     User.find().then(user => res.json(user));
 });
 //posts route - to post the new posts 
 router.post("/posts", (req, res) =>{
+    console.log(req.body)
     Posts.create(req.body).then(data =>{
         console.log(data) 
         return res.status (200).json({})
