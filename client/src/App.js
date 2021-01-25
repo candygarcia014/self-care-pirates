@@ -7,9 +7,9 @@ import Forum from './pages/Forum/Forum';
 import Register from './pages/Register';
 import User from './pages/User';
 import OurStory from './pages/OurStory/OurStory';
-import Login from './components/Login/Login';
-
-
+import PostPage from "./pages/PostPage/PostPage";
+import Login from './components/Login/Login'
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -17,14 +17,18 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact component={LandingPage} />
-        <Route path='/forum' component={Forum} />
-        <Route path='/user' component={User} />
+        <ProtectedRoute path='/forum'>
+          <Forum />
+        </ProtectedRoute>
+        <ProtectedRoute path='/user'>
+          <User />
+        </ProtectedRoute>
         <Route path='/our-story' component={OurStory} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
+        <Route path='/post' component={PostPage} />
       </Switch>
     </Router>
   );
 }
-
 export default App;

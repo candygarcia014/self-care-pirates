@@ -6,5 +6,20 @@ export default {
     },
     login: function(data) {
         return axios.post("/api/login", data);
+    },
+    logout: function() {
+        return axios.get("/api/logout");
+    },
+    // Userpage
+    name: function(data) {
+        return axios.get("/api/user", data);
+    },
+    //creates posts
+    createPosts: function(data) {
+        return axios.post("/api/posts", data);
+    },
+    //gets all posts
+    getPosts:async function(data) {
+        return await axios.get("/api/posts", data);
     }
 }

@@ -32,8 +32,10 @@ const OurStory = (props) => {
       <Col xs={8}>
         <DevCard 
           name="Candy Garcia"
+
           // <a href={url}>LinkedIn handle</a>
           github= "https://github.com/candygarcia014" />
+
       </Col>
     </Row>
     

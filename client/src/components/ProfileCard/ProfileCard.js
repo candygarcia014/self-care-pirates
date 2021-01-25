@@ -1,38 +1,57 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import Card from 'react-bootstrap/esm/Card';
+import Api from "../../utils/Api";
 
 import '../ProfileCard/ProfileCard.css'
 import Avatar from './Avatar';
+import PhotoModal from '../PhotoModal/PhotoModal';
 
 
 function ProfileCard() {
+    const[name,setName]=useState();
+
+    const username = JSON.parse(localStorage.getItem("username")).username;
+    const password = JSON.parse(localStorage.getItem("username")).password;
+    
+    let FirstName = "";
+
+    Api.name({
+        username:username,
+        password:password,
+    }).then(steve => {
+        setName(steve.data[0].firstName+" "+steve.data[0].lastName);
+        FirstName = steve.data[0].firstName;
+    })
+
+
+
+
     return (
         <div className="Container">
             {/* User Photo */}
             <Row>
                 <Col xs={12}>
                     <Avatar />
+                    <PhotoModal />
                 </Col>
             </Row>
 
-            {/* Username, this.uppercase(data.name.username)*/}
+            {/* Username*/}
             <Row>
                 <Col xs={12}>
                     <div className="Username">
-                        USERNAME
+                        {username.toUpperCase()}
                     </div> 
                 </Col>
             </Row>
 
-            {/* First/Last Name, this.uppercase(data.name.username)*/}
+            {/* Full Name*/}
             <Row>
                 <Col xs={12}>
                     <div className="FullName">
-                        {/* {this.uppercase(data.name.first) + " " + this.uppercase(data.name.last)} */}
-                        {/* Placeholder: */}
-                        Jean-Luc Pikachu
+                        {name}
                     </div> 
                 </Col>
             </Row>

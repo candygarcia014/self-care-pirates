@@ -3,8 +3,16 @@ const mongoose = require('mongoose'),
       
 
 const postsSchema = new Schema({
-    posts: {
+    title: {
         type: String,
+        required: "post need a title",
+    },
+    body: {
+        type: String,
+        required: "post need a text",
+    },
+    username: {
+        type: Number,
         required: false,
     },
     totalBolts: {
