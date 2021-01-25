@@ -3,6 +3,13 @@ import StoryCard from './../../components/StoryCard/StoryCard';
 import DevCard from './../../components/DevCard/DevCard';
 import { Container, Row, Col } from 'react-bootstrap';
 import DevImage from './../../components/DevImage/DevImage';
+import developers from '../../developers.json'
+
+// class OurStory extends Component {
+//   // Setting this.state.friends to the friends json array
+//   state = {
+//     developers
+//   };
 
 const OurStory = (props) => {
   return (
@@ -31,7 +38,7 @@ const OurStory = (props) => {
       
       <Col xs={8}>
         <DevCard 
-          name="Candy Garcia"
+          name={props.name}
           github="https://github.com/candygarcia014" />
       </Col>
     </Row>
