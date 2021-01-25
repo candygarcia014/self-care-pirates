@@ -38,8 +38,8 @@ const OurStory = (props) => {
       
       <Col xs={8}>
         <DevCard 
-          name={props.name}
-          github="https://github.com/candygarcia014" />
+          name={developers[0].name}
+          github={developers[0].github} />
       </Col>
     </Row>
     
@@ -47,8 +47,8 @@ const OurStory = (props) => {
     <Row>
       <Col xs={6}>
         <DevCard 
-          name="Laurynas Juzva"
-          github="https://github.com/Juzva8" />
+          name={developers[1].name}
+          github={developers[1].github}  />
       </Col>
 
       <Col>
@@ -64,8 +64,8 @@ const OurStory = (props) => {
 
       <Col>
         <DevCard 
-          name="Tammy Nguyen"
-          github="https://github.com/ttngu" />
+          name={developers[2].name}
+          github={developers[2].github}  />
       </Col>
     </Row>
 
@@ -73,8 +73,8 @@ const OurStory = (props) => {
     <Row>
       <Col xs={8}>
         <DevCard 
-          name="Shanni Suissa"
-          github="https://github.com/ShanniSnax" />
+          name={developers[3].name}
+          github={developers[3].github}  />
       </Col>
 
       <Col>
@@ -90,8 +90,8 @@ const OurStory = (props) => {
 
         <Col>
           <DevCard 
-            name="Cathlene Converse"
-            github="https://github.com/cgconverse" />
+            name={developers[4].name}
+            github={developers[4].github}  />
         </Col>
       </Row>
     
