@@ -27,7 +27,8 @@ const Signup = (props) => {
     };
     Api.login(userLoginInfo).then(res => {
       if(res.data.token) {
-        localStorage.setItem("token", res.data.token)
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", JSON.stringify(userLoginInfo));
         history.push("/forum")
       }
     })

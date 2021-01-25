@@ -12,8 +12,8 @@ const postsSchema = new Schema({
         required: "post need a text",
     },
     username: {
-        type: Number,
-        required: false,
+        type: String,
+        required: true,
     },
     totalBolts: {
         type: Number,
@@ -26,8 +26,8 @@ const postsSchema = new Schema({
     comments: {
         type: String,
         required: false,
-    },
-    
+    }
+  
 });
 
 const Posts = mongoose.model("Posts", postsSchema);
