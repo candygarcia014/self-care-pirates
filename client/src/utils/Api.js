@@ -11,8 +11,8 @@ export default {
         return axios.get("/api/logout");
     },
     // Userpage
-    name: function(data) {
-        return axios.get("/api/user", data);
+    name: function(id) {
+        return axios.get("/api/user/" + id);
     },
     //creates posts
     createPosts: function(data) {
