@@ -4,14 +4,14 @@ import "./Login.css";
 import Api from "../../utils/Api";
 import { useHistory, Redirect } from "react-router-dom";
 const Login = (props) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLogged, setisLogged] = useState(false);
   const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
     Api.login({
-      username: email,
+      username: username,
       password: password,
     }).then((res) => {
       console.log(res);
@@ -32,14 +32,14 @@ const Login = (props) => {
     <Form>
       <Row form>
         <FormGroup>
-          <Label for="email">Username</Label>
+          <Label for="username">Username</Label>
           <Input
-            type="email"
-            name="email"
-            id="mail"
+            type="username"
+            name="username"
+            id="username"
             placeholder="Username"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </FormGroup>
       </Row>
