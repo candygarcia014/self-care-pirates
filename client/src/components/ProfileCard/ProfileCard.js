@@ -19,7 +19,7 @@ function ProfileCard() {
     }, []);
 
     const getUser = async () => {
-        const { id } = decode(JSON.parse(localStorage.getItem("token")));
+        const { id } = decode(localStorage.getItem("token"));
         const { data } = await Api.name(id);
         setUserInfo(data);
     };
