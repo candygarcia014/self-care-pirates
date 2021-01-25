@@ -55,7 +55,7 @@ history.push ("/login")
           <Link
             to="/user"
             className={window.location.pathname === "/user" ? "nav-link active" : "nav-link"}>
-            User
+            Profile
           </Link>
 
           
