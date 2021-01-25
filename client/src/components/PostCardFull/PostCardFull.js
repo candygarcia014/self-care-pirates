@@ -3,6 +3,7 @@ import './PostCardFull.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Card from 'react-bootstrap/Card';
+import MakeComment from '../MakeComment/MakeComment';
 
 
 
@@ -19,11 +20,13 @@ const PostCardFull = (props) => {
                 {props.body}
             </Card.Text>
             <ButtonGroup className="comment-share-button">
-            <Button as="input" type="button" value="Comment" data-id={props.id}/>{' '}
+            {/* <Button as="input" type="button" value="Comment" data-id={props.id}/>{' '} */}
             <Button as="input" type="submit" value="Share" />{' '}
-            </ButtonGroup>           
+            </ButtonGroup>    
+                 
         </Card.Body>
         </Card>
+         
     )};
 
 export default PostCardFull;
