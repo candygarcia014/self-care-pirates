@@ -13,5 +13,13 @@ export default {
     // Userpage
     name: function(data) {
         return axios.get("/api/user", data);
+    },
+    //creates posts
+    createPosts: function(data) {
+        return axios.post("/api/posts", data);
+    },
+    //gets all posts
+    getPosts:async function(data) {
+        return await axios.get("/api/posts", data);
     }
 }

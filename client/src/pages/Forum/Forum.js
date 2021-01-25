@@ -6,6 +6,7 @@ import BackToTop from '../../components/BackToTop/BackToTop';
 import './Forum.css';
 import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
 import MakePost from '../../components/MakePost/MakePost';
+import Api from "../../utils/Api"
 
 //fake data placeholders 
 
@@ -53,6 +54,8 @@ const fakeData = [
 ]
 
 const Forum = () => {
+  const data = Api.getPosts()
+  console.log(data)
   return (
     <Container fluid className="forum-container">
       <Row>
@@ -78,8 +81,8 @@ const Forum = () => {
                 <MakePost />
               </Col>
             </Row>
-            
-            {fakeData.map(({title, body, username, date, time, id}) => (           
+            {/* //these are the requirements for the posts */}
+            {data.map(({title, body, username, date, time, id}) => (           
             <Row>
               <Col xs={12}>
                 <PostCard 

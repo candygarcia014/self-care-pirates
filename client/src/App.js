@@ -8,7 +8,6 @@ import Register from './pages/Register';
 import User from './pages/User';
 import OurStory from './pages/OurStory/OurStory';
 import PostPage from "./pages/PostPage/PostPage";
-
 import Login from './components/Login/Login'
 import ProtectedRoute from "./components/ProtectedRoute";
 
