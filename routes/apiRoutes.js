@@ -42,7 +42,7 @@ router.post("/posts", (req, res) =>{
         return res.status (200).json({})
     })
 })
-//route to find all posts and sen back to user 
+//route to find all posts and sends back to user/frontend  
 router.get("/posts", (req, res) => {
     Posts.find().then(data => res.json(data));
 })

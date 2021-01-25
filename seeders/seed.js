@@ -101,7 +101,8 @@ const postsSeed = [
 db.Comments.deleteMany({})
   .then(() => db.Comments.collection.insertMany(commentsSeed))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result.n + " comments inserted!");
+
     //pulling posts in 
     db.Posts.deleteMany({})
     .then(() => db.Posts.collection.insertMany(postsSeed))
@@ -113,6 +114,7 @@ db.Comments.deleteMany({})
       console.error(err);
       process.exit(1);
     });
+
   })
   .catch(err => {
     console.error(err);
