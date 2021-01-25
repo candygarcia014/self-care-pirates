@@ -55,15 +55,14 @@ history.push ("/login")
           <Link
             to="/user"
             className={window.location.pathname === "/user" ? "nav-link active" : "nav-link"}>
-            User
+            Profile
           </Link>
 
           
 
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button className="SearchBtn" variant="outline-secondary">Search</Button>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" id="SearchBar" />
         </Form>
         
 {!isLoggedin ? (

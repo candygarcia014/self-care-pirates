@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const jwt = require("../configs/jwt");
-const { User } = require("../models/index");
+const { User, Posts } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 router.post("/signup", (req, res) => {
@@ -32,9 +32,24 @@ router.get("/logout", (req,res) => {
     req.logout();
     res.json("User logged out")
 });
-router.get("/user", isUserAuthenticated, (req, res) => {
-    User.find().then(user => res.json(user));
+
+router.get("/user/:id", (req, res) => {
+    const { id } = req.params
+    User.findById(id).then(user => res.json(user));
+
 });
+//posts route - to post the new posts 
+router.post("/posts", (req, res) =>{
+    console.log(req.body)
+    Posts.create(req.body).then(data =>{
+        console.log(data) 
+        return res.status (200).json({})
+    })
+})
+//route to find all posts and sends back to user/frontend  
+router.get("/posts", (req, res) => {
+    Posts.find().then(data => res.json(data));
+})
 
 module.exports = router;
 
