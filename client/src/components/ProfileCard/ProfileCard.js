@@ -1,32 +1,35 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import Card from 'react-bootstrap/esm/Card';
 import Api from "../../utils/Api";
-
+import decode from 'jwt-decode';
 import '../ProfileCard/ProfileCard.css'
 import Avatar from './Avatar';
 import PhotoModal from '../PhotoModal/PhotoModal';
 
 
 function ProfileCard() {
-    const[name,setName]=useState();
+    const[userInfo, setUserInfo]=useState();
 
-    const username = JSON.parse(localStorage.getItem("username")).username;
-    const password = JSON.parse(localStorage.getItem("username")).password;
+    // const username = JSON.parse(localStorage.getItem("username")).username;
     
-    let FirstName = "";
+    useEffect(() => {
+        getUser();
+    }, []);
 
-    Api.name({
-        username:username,
-        password:password,
-    }).then(steve => {
-        setName(steve.data[0].firstName+" "+steve.data[0].lastName);
-        FirstName = steve.data[0].firstName;
-    })
+    const getUser = async () => {
+        const { id } = decode(JSON.parse(localStorage.getItem("token")));
+        const { data } = await Api.name(id);
+        setUserInfo(data);
+    };
 
+    if(!userInfo) return <h1>Loading...</h1>
+    const { firstName, lastName, username } = userInfo;
 
-
+    const fullName = (user) => {
+        return `${user.firstName} ${user.lastName}`
+    }
 
     return (
         <div className="Container">
@@ -51,7 +54,7 @@ function ProfileCard() {
             <Row>
                 <Col xs={12}>
                     <div className="FullName">
-                        {name}
+                        {fullName(userInfo)}
                     </div> 
                 </Col>
             </Row>
