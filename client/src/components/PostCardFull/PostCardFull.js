@@ -3,7 +3,6 @@ import './PostCardFull.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Card from 'react-bootstrap/Card';
-import MakeComment from '../MakeComment/MakeComment';
 
 
 
@@ -14,7 +13,7 @@ const PostCardFull = (props) => {
             <Card.Title>{props.title}</Card.Title>
             <Card.Subtitle 
                 className="mb-2 text-muted meta-data-date-time meta-data">
-                {props.date} | {props.time} <span className="meta-data-username">{props.username}</span>
+                <span className="meta-data-username">{props.username}</span> | {props.date} 
             </Card.Subtitle>
             <Card.Text>
                 {props.body}
