@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import BackToTop from '../../components/BackToTop/BackToTop';
 import './PostPage.css';
 import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
+import MakeComment from '../../components/MakeComment/MakeComment';
 
 //fake data placeholders 
 
@@ -54,6 +55,12 @@ const PostPage = () => {
             </Col>
             </Row>
           ))}
+
+            <Row>
+             <Col xs={12}>
+              <MakeComment />
+             </Col>
+            </Row>
         </Col>
 
         {/* right side widgets */}

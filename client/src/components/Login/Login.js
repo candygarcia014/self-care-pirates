@@ -55,8 +55,9 @@ const Login = (props) => {
             value={password}
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Log in</Button>
+      
       </Row>
+      <Button onClick={handleSubmit}>Log in</Button>
     </Form>
   );
 };
