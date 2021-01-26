@@ -21,12 +21,6 @@ export default {
     //gets all posts
     getPosts:async function(data) {
         return await axios.get("/api/posts", data);
-    },
-
-    // Photo Upload
-    uploadPhoto: function(data, id) {
-        console.log(id)
-        return axios.post("/api/upload/" + id, data);
     }, 
     //this is the front end post page 
     getSinglePost: async function(id) {
