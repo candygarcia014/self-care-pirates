@@ -21,5 +21,13 @@ export default {
     //gets all posts
     getPosts:async function(data) {
         return await axios.get("/api/posts", data);
-    }
+    }, 
+    //this is the front end post page 
+    getSinglePost: async function(id) {
+        return await axios.get("/api/posts/" + id)
+    },
+
 }
+
+
+//post api that will create the comments - to render the response from the backend

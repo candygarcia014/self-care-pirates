@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const jwt = require("../configs/jwt");
-const { User, Posts } = require("../models/index");
+const { User, Posts, Comments } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 router.post("/signup", (req, res) => {
@@ -36,7 +36,7 @@ router.get("/logout", (req,res) => {
 //gets user and all of their posts 
 router.get("/user/:id", (req, res) => {
     const { id } = req.params;
-    User.findById(id).populate('userPosts').then(user => res.json(user));
+    User.findById(id).populate(['userPosts', 'userComments']).populate('comments').then(user => res.json(user));
 
 });
 //posts route - to post the new posts 
@@ -59,9 +59,24 @@ router.get("/posts", (req, res) => {
 
 //route to get individual post and returns data for that post 
 router.get("/posts/:id", (req, res) => {
-    Posts.findById(req.params.id).then(data => {
+    Posts.findById(req.params.id).populate("comments").then(data => {
         res.json(data);
     })
+});
+
+//create a new comment under the post
+router.post("/posts/:postId/:userId/comments", (req, res) => {
+    const { postId, userId } = req.params;
+    Comments.create (req.body).then(data =>{
+        console.log(data) 
+        //comments get pushed into the posts model
+        Posts.findOneAndUpdate({_id: postId}, {$push: { comments: data.id }}, { new: true }).then(data => {
+        //Comment gets pushed into the user model 
+        User.findOneAndUpdate({_id: userId}, { $push: { userComments: data.id }}, { new: true }).then(data1 => data1);
+        return res.status(200).json("posted")
+    });
+});
+
 });
 
 

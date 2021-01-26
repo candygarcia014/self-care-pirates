@@ -37,6 +37,12 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "Posts"
         }
+    ],
+    userComments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Comments"
+        }
     ]
     // posts: [posts collection]
     // Create a post collection schema

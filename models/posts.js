@@ -18,15 +18,18 @@ const postsSchema = new Schema({
     totalBolts: {
         type: Number,
         required: false,
+        default: 0
     },
     date: {
         type: Date,
         default: Date.now,
     },
-    comments: {
-        type: String,
-        required: false,
-    }
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Comments"
+        }
+    ],
   
 });
 

@@ -11,9 +11,9 @@ const PostCard = (props) => {
     const truncatedPost = props.body?.substring(0, 200) + "...";
 
     const handleredirct = e => {
-        console.log(e.target.id)
+        const id  = e.target.getAttribute("data-id")
+        history.push("/post/" + id);
     };
-
     return (
         <Card className="p-0 my-2">
         <Card.Body>
@@ -26,7 +26,7 @@ const PostCard = (props) => {
                 {truncatedPost}
             </Card.Text>
             <ButtonGroup className="comment-share-button">
-            <Button as="input" type="button" value="Comment" id={props.id} onClick={handleredirct}/>{' '}
+            <Button as="input" type="button" value="Comment" data-id={props.id} onClick={handleredirct}/>{' '}
             <Button as="input" type="submit" value="Share" />{' '}
             </ButtonGroup>           
         </Card.Body>
