@@ -67,7 +67,6 @@ router.get("/posts", (req, res) => {
     Posts.find().sort({ date: -1 }).then(data => res.json(data));
 })
 
-<<<<<<< HEAD
 // Photo Upload
 router.post("/upload/:userId", async (req, res) => {
     const { userId } = req.params
@@ -101,7 +100,6 @@ router.post("/upload/:userId", async (req, res) => {
     });
 });
 
-=======
 //route to get individual post and returns data for that post 
 router.get("/posts/:id", (req, res) => {
     Posts.findById(req.params.id).populate("comments").then(data => {
@@ -123,7 +121,6 @@ router.post("/posts/:postId/:userId/comments", (req, res) => {
 });
 
 });
->>>>>>> 5b9ca23898264a4fcadc2f49c2355f853869df30
 
 
 module.exports = router;

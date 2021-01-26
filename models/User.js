@@ -32,11 +32,9 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-<<<<<<< HEAD
     image: {
         type: String
-    }
-=======
+    },
     userPosts: [
         {
             type: Schema.Types.ObjectId,
@@ -49,7 +47,6 @@ const userSchema = new Schema({
             ref: "Comments"
         }
     ]
->>>>>>> 5b9ca23898264a4fcadc2f49c2355f853869df30
     // posts: [posts collection]
     // Create a post collection schema
 });
