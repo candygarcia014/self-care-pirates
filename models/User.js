@@ -32,6 +32,9 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    image: {
+        type: String
+    }
     // posts: [posts collection]
     // Create a post collection schema
 });

@@ -62,7 +62,8 @@ router.get("/posts", (req, res) => {
 })
 
 // Photo Upload
-router.post("/upload", async (req, res) => {
+router.post("/upload/:userId", async (req, res) => {
+    const { userId } = req.params
     // Sending error back if no file was uploaded
     if (!req.files) {
         return res.status(400).send("No file was uploaded.");
@@ -83,7 +84,7 @@ router.post("/upload", async (req, res) => {
     // uploading file to the bucket
     s3.upload(params, (err, response) => {
         if (err) throw err;
-    
+        User.findOneAndUpdate({ _id: userId }, { image: response.Location }, { new: true}).then(x => x)
         console.log(`File uploaded successfully at ${response.Location}`);
         // terminating the req/res cycle by sending a JSON object with the uploaded
         // file path AND any date sent along with the upload... this is where you 

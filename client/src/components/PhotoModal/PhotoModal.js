@@ -2,6 +2,7 @@ import React, { useState, Component } from "react";
 import { Button, Modal, Form } from "react-bootstrap/";
 import "../PhotoModal/PhotoModal.css";
 import axios from "axios";
+import decode from 'jwt-decode';
 import { Alert } from "reactstrap";
 import api from "../../utils/Api.js"
 
@@ -22,9 +23,11 @@ class PhotoModal extends Component {
   };
 
   Upload(data) {
+    const userId = decode(localStorage.getItem("token"));
+    // api.uploadPhoto(data, userId.id)
     axios
       .post({
-        url: "/upload",
+        url: "/upload/" + userId.id,
         data: data,
       })
       .then(console.log(data));

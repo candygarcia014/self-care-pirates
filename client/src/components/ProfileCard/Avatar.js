@@ -6,7 +6,7 @@ import '../ProfileCard/ProfileCard.css'
 const AvatarImage = require('../images/AvatarExample.jpg')
 
 
-function Avatar() {
+function Avatar(props) {
     return (
         <>
             <div className="AvatarImage">
@@ -18,7 +18,7 @@ function Avatar() {
                 /> */}
 
                 {/* IMAGE FROM S3, NEEDS HELP */}
-                <img src={'http://scp-ucla-bc2021.s3-us-west-2.amazonaws.com/'+this.image} className="card-img-top"
+                <img src={props.image} className="card-img-top"
                 alt=""/>
             </div>
         </>
