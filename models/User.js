@@ -32,6 +32,9 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    image: {
+        type: String
+    },
     userPosts: [
         {
             type: Schema.Types.ObjectId,
