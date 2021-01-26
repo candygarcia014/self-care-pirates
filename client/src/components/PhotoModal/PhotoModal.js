@@ -1,10 +1,7 @@
-import React, { useState, Component } from "react";
-import { Button, Modal, Form } from "react-bootstrap/";
-import "../PhotoModal/PhotoModal.css";
-import axios from "axios";
-import decode from 'jwt-decode';
-import { Alert } from "reactstrap";
-import api from "../../utils/Api.js"
+import React,{useState}  from 'react'
+import {Button, Modal, Form} from 'react-bootstrap/';
+import '../PhotoModal/PhotoModal.css'
+
 
 class PhotoModal extends Component {
   constructor(props) {
@@ -56,59 +53,35 @@ class PhotoModal extends Component {
       selectedFile: file,
     });
 
-  };
-  fileUploadHandler = () => {
-    // const data = new FormData();
-    // console.log(this.state.selectedFile);
-    // data.append("file", this.state.selectedFile);
-    // console.log(data);
-    this.Upload()
-    // axios
-    //   .post("/api/upload", data)
-    //   .then((res) => {
-    //     // then print response status
-    //     alert("upload success");
-    //   })
-    //   .catch((err) => {
-    //     // then print response status
-    //     alert("upload fail");
-    //     console.log(err);
-    //   });
 
-  };
-
-  render() {
+function PhotoModal() {
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
     return (
       <>
-        <Button
-          variant="secondary"
-          onClick={this.handleShow}
-          className="PhotoBtn"
-        >
+        <Button variant="secondary" onClick={handleShow} className="PhotoBtn">
           Add
         </Button>
-
-        <Modal show={this.state.show} onHide={this.handleClose}>
+  
+        <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Upload a Photo</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
-              <Form.Group>
-                <Form.File
-                  bsCustomPrefix="custom-file-label"
-                  id="exampleFormControlFile1"
-                  label="Example file input"
-                  onChange={this.onChangeHandler}
-                />
-              </Form.Group>
+                <Form.Group>
+                    <Form.File id="exampleFormControlFile1" label="Example file input" />
+                </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
+            <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="secondary" onClick={this.fileUploadHandler}>
+            <Button variant="secondary" onClick={handleClose}>
               Save Changes
             </Button>
           </Modal.Footer>
@@ -116,6 +89,7 @@ class PhotoModal extends Component {
       </>
     );
   }
-}
+  
 
-export default PhotoModal;
+  
+  export default PhotoModal

@@ -25,7 +25,7 @@ function ProfileCard() {
     };
 
     if(!userInfo) return <h1>Loading...</h1>
-    const { firstName, lastName, username, image } = userInfo;
+    const { firstName, lastName, username } = userInfo;
 
     const fullName = (user) => {
         return `${user.firstName} ${user.lastName}`
@@ -36,7 +36,9 @@ function ProfileCard() {
             {/* User Photo */}
             <Row>
                 <Col xs={12}>
+
                     <Avatar image={image} />
+
                     <PhotoModal />
                 </Col>
             </Row>

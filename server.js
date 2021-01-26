@@ -1,5 +1,3 @@
-const fileUpload = require("express-fileupload");
-
 const express = require("express"),
       app = express(),
       mongoose = require('mongoose'),
@@ -9,11 +7,8 @@ const express = require("express"),
       PORT = process.env.PORT || 3001;
       db = require("./models");
 
-
-
 require("dotenv").config();
 
-app.use(fileUpload())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session({ resave:true, saveUninitialized:true, secret: 'Pirate Pickles',}));
