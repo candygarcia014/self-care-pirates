@@ -33,23 +33,37 @@ router.get("/logout", (req,res) => {
     res.json("User logged out")
 });
 
+//gets user and all of their posts 
 router.get("/user/:id", (req, res) => {
-    const { id } = req.params
-    User.findById(id).then(user => res.json(user));
+    const { id } = req.params;
+    User.findById(id).populate('userPosts').then(user => res.json(user));
 
 });
 //posts route - to post the new posts 
-router.post("/posts", (req, res) =>{
-    console.log(req.body)
+// 1. send post req to backend - in the backend we need to find the user ID to get all of his posts out of his database and update with the new posts. 
+router.post("/posts/:id", (req, res) =>{
+    const { id } = req.params
+    console.log(id)
     Posts.create(req.body).then(data =>{
         console.log(data) 
-        return res.status (200).json({})
-    })
+        User.findOneAndUpdate({_id: id}, {$push: { userPosts: data.id }}, { new: true }).then(res => {
+        return res.status (200).json("posted")
+    });
+    });
+    console.log(req.body)
 })
 //route to find all posts and sends back to user/frontend  
 router.get("/posts", (req, res) => {
     Posts.find().sort({ date: -1 }).then(data => res.json(data));
 })
+
+//route to get individual post and returns data for that post 
+router.get("/posts/:id", (req, res) => {
+    Posts.findById(req.params.id).then(data => {
+        res.json(data);
+    })
+});
+
 
 module.exports = router;
 

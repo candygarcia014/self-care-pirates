@@ -15,8 +15,8 @@ export default {
         return axios.get("/api/user/" + id);
     },
     //creates posts
-    createPosts: function(data) {
-        return axios.post("/api/posts", data);
+    createPosts: function(data, id) {
+        return axios.post("/api/posts/" + id, data);
     },
     //gets all posts
     getPosts:async function(data) {
