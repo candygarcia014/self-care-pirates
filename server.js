@@ -6,8 +6,13 @@ const express = require("express"),
       session = require("express-session"),
       PORT = process.env.PORT || 3001;
       db = require("./models");
+const fileUpload = require("express-fileupload");
+const AWS = require("aws-sdk");
+const keys = require("./utils/keys.js");
+
 
 require("dotenv").config();
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
