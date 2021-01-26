@@ -3,7 +3,7 @@ const AWS = require("aws-sdk");
 const keys = require("../utils/keys.js");
 const router = require('express').Router();
 const jwt = require("../configs/jwt");
-const { User, Posts } = require("../models/index");
+const { User, Posts, Comments } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
 
@@ -43,24 +43,31 @@ router.get("/logout", (req,res) => {
     res.json("User logged out")
 });
 
+//gets user and all of their posts 
 router.get("/user/:id", (req, res) => {
-    const { id } = req.params
-    User.findById(id).then(user => res.json(user));
+    const { id } = req.params;
+    User.findById(id).populate(['userPosts', 'userComments']).populate('comments').then(user => res.json(user));
 
 });
 //posts route - to post the new posts 
-router.post("/posts", (req, res) =>{
-    console.log(req.body)
+// 1. send post req to backend - in the backend we need to find the user ID to get all of his posts out of his database and update with the new posts. 
+router.post("/posts/:id", (req, res) =>{
+    const { id } = req.params
+    console.log(id)
     Posts.create(req.body).then(data =>{
         console.log(data) 
-        return res.status (200).json({})
-    })
+        User.findOneAndUpdate({_id: id}, {$push: { userPosts: data.id }}, { new: true }).then(res => {
+        return res.status (200).json("posted")
+    });
+    });
+    console.log(req.body)
 })
 //route to find all posts and sends back to user/frontend  
 router.get("/posts", (req, res) => {
-    Posts.find().then(data => res.json(data));
+    Posts.find().sort({ date: -1 }).then(data => res.json(data));
 })
 
+<<<<<<< HEAD
 // Photo Upload
 router.post("/upload/:userId", async (req, res) => {
     const { userId } = req.params
@@ -94,6 +101,29 @@ router.post("/upload/:userId", async (req, res) => {
     });
 });
 
+=======
+//route to get individual post and returns data for that post 
+router.get("/posts/:id", (req, res) => {
+    Posts.findById(req.params.id).populate("comments").then(data => {
+        res.json(data);
+    })
+});
+
+//create a new comment under the post
+router.post("/posts/:postId/:userId/comments", (req, res) => {
+    const { postId, userId } = req.params;
+    Comments.create (req.body).then(data =>{
+        console.log(data) 
+        //comments get pushed into the posts model
+        Posts.findOneAndUpdate({_id: postId}, {$push: { comments: data.id }}, { new: true }).then(data => {
+        //Comment gets pushed into the user model 
+        User.findOneAndUpdate({_id: userId}, { $push: { userComments: data.id }}, { new: true }).then(data1 => data1);
+        return res.status(200).json("posted")
+    });
+});
+
+});
+>>>>>>> 5b9ca23898264a4fcadc2f49c2355f853869df30
 
 
 module.exports = router;
