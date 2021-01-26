@@ -36,7 +36,9 @@ function ProfileCard() {
             {/* User Photo */}
             <Row>
                 <Col xs={12}>
-                    <Avatar />
+
+                    <Avatar image={image} />
+
                     <PhotoModal />
                 </Col>
             </Row>
