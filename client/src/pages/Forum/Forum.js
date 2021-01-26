@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import PostCard from './../../components/PostCard/PostCard';
 import CategoryWidget from './../../components/CategoryWidget/CategoryWidget';
+import CategoryMobile from './../../components/CategoryMobile/CategoryMobile';
 import { Container, Row, Col } from 'react-bootstrap';
 import BackToTop from '../../components/BackToTop/BackToTop';
 import './Forum.css';
 import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
 import MakePost from '../../components/MakePost/MakePost';
 import Api from "../../utils/Api"
+
+
 
 //fake data placeholders 
 
@@ -87,10 +90,13 @@ const Forum = () => {
       <Row>
 
         {/* left side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} className="category-desktop">
               <CategoryWidget />
+            </Col>
+            <Col xs={12} className="category-mobile">
+              <CategoryMobile />
             </Col>
           </Row>
           <Row>
@@ -101,7 +107,7 @@ const Forum = () => {
         </Col>
 
         {/* posts */}
-        <Col xs={8}>
+        <Col xs={8} sm={12} lg={8}>
             <Row>
               <Col xs={12}>
                 <MakePost username={username.username}/>
@@ -125,7 +131,7 @@ const Forum = () => {
         </Col>
 
         {/* right side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
             <Col xs={12}>
               <OtherWidgets />
