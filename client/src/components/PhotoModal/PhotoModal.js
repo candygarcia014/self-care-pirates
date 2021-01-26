@@ -89,7 +89,7 @@ function PhotoModal() {
       </>
     );
   }
-  
+}}
 
   
   export default PhotoModal
