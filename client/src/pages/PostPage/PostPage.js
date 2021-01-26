@@ -1,6 +1,7 @@
 import React from 'react';
 import PostCardFull from './../../components/PostCardFull/PostCardFull';
 import CategoryWidget from './../../components/CategoryWidget/CategoryWidget';
+import CategoryMobile from './../../components/CategoryMobile/CategoryMobile';
 import { Container, Row, Col } from 'react-bootstrap';
 import BackToTop from '../../components/BackToTop/BackToTop';
 import './PostPage.css';
@@ -47,10 +48,13 @@ const PostPage = () => {
       <Row>
 
         {/* left side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} className="category-desktop">
               <CategoryWidget />
+            </Col>
+            <Col xs={12} className="category-mobile">
+              <CategoryMobile />
             </Col>
           </Row>
           <Row>
@@ -61,7 +65,7 @@ const PostPage = () => {
         </Col>
 
         {/* truncated posts */}
-        <Col xs={8}>
+        <Col xs={8} sm={12} lg={8}>
             {fakeData.map(({ title, body, username, date, id}) => (
             <Row>
             <Col xs={12}>
@@ -97,7 +101,7 @@ const PostPage = () => {
         </Col>
 
         {/* right side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
             <Col xs={12}>
               <OtherWidgets />
