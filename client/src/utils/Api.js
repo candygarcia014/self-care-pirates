@@ -25,6 +25,7 @@ export default {
 
     // Photo Upload
     uploadPhoto: function(data, id) {
+        console.log(id)
         return axios.post("/api/upload/" + id, data);
     }
 }

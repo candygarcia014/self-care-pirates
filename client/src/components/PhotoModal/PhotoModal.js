@@ -22,15 +22,30 @@ class PhotoModal extends Component {
     this.setState({ show: true });
   };
 
-  Upload(data) {
+  Upload() {
+    const data = new FormData();
+    console.log(this.state.selectedFile);
+    data.append("file", this.state.selectedFile);
     const userId = decode(localStorage.getItem("token"));
-    // api.uploadPhoto(data, userId.id)
-    axios
-      .post({
-        url: "/upload/" + userId.id,
-        data: data,
-      })
-      .then(console.log(data));
+    console.log(data)
+    console.log(userId.id)
+    api.uploadPhoto(data, userId.id).then(x => console.log(x))
+          .catch((err) => {
+        // then print response status
+        alert("upload fail");
+        console.log(err);
+      });
+    // axios
+    //   .post({
+    //     url: "/upload/" + userId.id.toString(),
+    //     data: data,
+    //   })
+    //   .then(console.log(data))
+    //   .catch((err) => {
+    //     // then print response status
+    //     alert("upload fail");
+    //     console.log(err);
+    //   });
   }
 
   onChangeHandler = (event) => {
@@ -40,32 +55,24 @@ class PhotoModal extends Component {
       selectedFile: file,
     });
 
-    // console.log(this.validateSize(event));
-    // if(this.validateSize(event)){
-    //   console.log(file);
-    // if return true allow to setState
-    //    this.setState({
-    //     selectedFile: file
-    //     });
-
-    //   }
   };
   fileUploadHandler = () => {
-    const data = new FormData();
-    console.log(this.state.selectedFile);
-    data.append("file", this.state.selectedFile);
-    console.log(data);
-    axios
-      .post("/api/upload", data)
-      .then((res) => {
-        // then print response status
-        alert("upload success");
-      })
-      .catch((err) => {
-        // then print response status
-        alert("upload fail");
-        console.log(err);
-      });
+    // const data = new FormData();
+    // console.log(this.state.selectedFile);
+    // data.append("file", this.state.selectedFile);
+    // console.log(data);
+    this.Upload()
+    // axios
+    //   .post("/api/upload", data)
+    //   .then((res) => {
+    //     // then print response status
+    //     alert("upload success");
+    //   })
+    //   .catch((err) => {
+    //     // then print response status
+    //     alert("upload fail");
+    //     console.log(err);
+    //   });
 
   };
 
