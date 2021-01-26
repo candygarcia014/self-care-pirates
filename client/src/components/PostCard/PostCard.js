@@ -1,13 +1,19 @@
 import React from 'react';
 import './PostCard.css';
+import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Card from 'react-bootstrap/Card';
 
 
-
 const PostCard = (props) => {
+    const history = useHistory();
     const truncatedPost = props.body?.substring(0, 200) + "...";
+
+    const handleredirct = e => {
+        console.log(e.target.id)
+    };
+
     return (
         <Card className="p-0 my-2">
         <Card.Body>
@@ -20,7 +26,7 @@ const PostCard = (props) => {
                 {truncatedPost}
             </Card.Text>
             <ButtonGroup className="comment-share-button">
-            <Button as="input" type="button" value="Comment" data-id={props.id}/>{' '}
+            <Button as="input" type="button" value="Comment" id={props.id} onClick={handleredirct}/>{' '}
             <Button as="input" type="submit" value="Share" />{' '}
             </ButtonGroup>           
         </Card.Body>
