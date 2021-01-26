@@ -48,7 +48,7 @@ router.post("/posts", (req, res) =>{
 })
 //route to find all posts and sends back to user/frontend  
 router.get("/posts", (req, res) => {
-    Posts.find().then(data => res.json(data));
+    Posts.find().sort({ date: -1 }).then(data => res.json(data));
 })
 
 module.exports = router;

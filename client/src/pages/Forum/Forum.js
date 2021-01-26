@@ -60,7 +60,8 @@ const Forum = () => {
   useEffect(() => {
     getAllPost();
     setUsername(JSON.parse(localStorage.getItem('username')))
-  }, []);
+    //run what is in useEffect again / refresh the data and poppulate new posts at the top. 
+  }, [data]);
 //this is the API to get all posts on forum pg
   const getAllPost = async () => {
     try {
@@ -70,15 +71,17 @@ const Forum = () => {
       console.log(err)
     }
   };
-  // const data = Api.getPosts()
-  //add loading component - loading mimage 
+  //const data = Api.getPosts()
+
+  //add loading a component/ Image that tells the user that the page is loading 
 
   //to check if data is poppulating, if not populating it will show the loading componenet  
   if(!data) return <h1>Loading...</h1>
   if(!username) return <h1>Loading...</h1>
 
-  const sortedArray = data;
 
+//sorts tru the array of posts and puts them in chronological order from newest to oldest
+ 
   return (
     <Container fluid className="forum-container">
       <Row>
@@ -105,7 +108,7 @@ const Forum = () => {
               </Col>
             </Row>
             {/* //these are the requirements for the posts */}
-            {sortedArray.map(({title, body, username, date, id}) => (           
+            {data.map(({title, body, username, date, id}) => (           
             <Row>
               <Col xs={12}>
                 <PostCard
