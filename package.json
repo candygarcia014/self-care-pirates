@@ -26,15 +26,10 @@
   "homepage": "https://github.com/ShanniSnax/self-care-pirates#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
-<<<<<<< HEAD
-    "aws-sdk": "^2.831.0",
-=======
     "axios": "^0.21.1",
->>>>>>> 5b9ca23898264a4fcadc2f49c2355f853869df30
     "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
