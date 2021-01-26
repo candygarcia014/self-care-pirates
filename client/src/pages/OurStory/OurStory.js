@@ -27,7 +27,7 @@ const OurStory = (props) => {
     </Row>
 
     <div>
-      <h1>Meet the Developers!</h1>
+      <h1 style={{width: "33%"}}>Meet the Developers!</h1>
     </div>
 
 

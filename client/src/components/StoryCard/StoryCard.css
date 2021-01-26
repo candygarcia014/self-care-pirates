@@ -1,10 +1,13 @@
 
-/* .story-card {
-    position: absolute;
-    width: 676px;
-    height: 369px;
-    left: calc(50% - 676px/2 - 19px);
-    top: 282px;
+.story-card {
+    /* width: 676px;
+    height: 369px; */
+    /* left: calc(50% - 676px/2 - 19px);
+    top: 282px; */
+    display: block !important;
+    margin-left: 15vw;
+    min-height: 16rem;
+    min-width: 40rem;
     
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.4);
@@ -12,5 +15,5 @@
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
 
-    } */
+    }
 

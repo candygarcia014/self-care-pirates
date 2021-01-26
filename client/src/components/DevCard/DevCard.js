@@ -42,7 +42,7 @@ import "./DevCard.css"
 const DevCard = (props) => {
     return (
 
-        <Card>
+        <Card style={{maxHeight: "20rem !important", maxWidth: "50rem" }}>
             {/* <Card.Img style={styles.image} variant="top" src="https://picsum.photos/200" /> */}
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
