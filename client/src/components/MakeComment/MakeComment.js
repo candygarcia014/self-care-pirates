@@ -7,6 +7,9 @@ import './MakeComment.css';
 
 
 const MakeComment = () => {
+    // first create states to contain input values;
+    // 
+
 
     return (
     <Card className="p-0 my-2">
