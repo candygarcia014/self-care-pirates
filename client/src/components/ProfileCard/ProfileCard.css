@@ -1,5 +1,3 @@
-
-
 .AvatarImage {
     position: relative;
     width: 140px;
@@ -8,37 +6,34 @@
     filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25));
     border-radius: 250px;
 }
-
 .card-img-top {
     margin-top: 5rem;
     box-sizing: border-box;
     filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25));
     border-radius: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    height: 100%;
 }
-
 .Username {
     margin-top: 2rem;
     text-align: center;
     position: relative;
 }
-
 .FullName {
     margin-top: 4rem;
     text-align: center;
     position: relative;
     font-size: smaller;
 }
-
 .Bio {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
 }
-
 .BioCard {
     padding: 2rem;
     text-align: center;
     width: 50%;
 }
-
