@@ -35,6 +35,7 @@ class PhotoModal extends Component {
         alert("upload fail");
         console.log(err);
       });
+      
     // axios
     //   .post({
     //     url: "/upload/" + userId.id.toString(),
