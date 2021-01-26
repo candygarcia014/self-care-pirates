@@ -1,18 +1,8 @@
-const fileUpload = require("express-fileupload");
-const AWS = require("aws-sdk");
-const keys = require("../utils/keys.js");
 const router = require('express').Router();
 const jwt = require("../configs/jwt");
 const { User, Posts, Comments } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
-
-// creating s3 instance (to allow uploads)
-const s3 = new AWS.S3({
-    accessKeyId: keys.s3key,
-    secretAccessKey: keys.s3secret
-});
-
 router.post("/signup", (req, res) => {
     console.log(req.body)
     const { email, firstName, lastName, username, password } = req.body
@@ -66,6 +56,7 @@ router.post("/posts/:id", (req, res) =>{
 router.get("/posts", (req, res) => {
     Posts.find().sort({ date: -1 }).then(data => res.json(data));
 })
+
 
 // Photo Upload
 router.post("/upload/:userId", async (req, res) => {
