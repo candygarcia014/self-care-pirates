@@ -10,6 +10,7 @@ import OurStory from './pages/OurStory/OurStory';
 import PostPage from "./pages/PostPage/PostPage";
 import SignIn from "./pages/SignIn";
 import ProtectedRoute from "./components/ProtectedRoute";
+import CommentPage from './components/MakeComment/MakeComment'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <ProtectedRoute path='/user'>
           <User />
         </ProtectedRoute>
+        <Route path='/post/:postId/' component={CommentPage} />
         <Route path='/our-story' component={OurStory} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={SignIn} />

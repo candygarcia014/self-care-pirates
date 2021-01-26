@@ -32,6 +32,12 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    userPosts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Posts"
+        }
+    ]
     // posts: [posts collection]
     // Create a post collection schema
 });
