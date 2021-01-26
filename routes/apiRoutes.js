@@ -1,8 +1,18 @@
+const fileUpload = require("express-fileupload");
+const AWS = require("aws-sdk");
+const keys = require("../utils/keys.js");
 const router = require('express').Router();
 const jwt = require("../configs/jwt");
 const { User, Posts } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
+
+// creating s3 instance (to allow uploads)
+const s3 = new AWS.S3({
+    accessKeyId: keys.s3key,
+    secretAccessKey: keys.s3secret
+});
+
 router.post("/signup", (req, res) => {
     console.log(req.body)
     const { email, firstName, lastName, username, password } = req.body
@@ -50,6 +60,40 @@ router.post("/posts", (req, res) =>{
 router.get("/posts", (req, res) => {
     Posts.find().then(data => res.json(data));
 })
+
+// Photo Upload
+router.post("/upload", async (req, res) => {
+    // Sending error back if no file was uploaded
+    if (!req.files) {
+        return res.status(400).send("No file was uploaded.");
+    }
+
+    // references the file uploaded from the input field with the 'name' attribute specified following 'req.files.'
+    const uploadFile = req.files.file;
+
+    console.log(req.files);
+
+    // setting up S3 upload parameters
+    const params = {
+        Body: uploadFile.data, // data from uploaded file
+        Bucket: keys.s3bucket, // bucket name
+        Key: `${Date.now()}-${uploadFile.name}` // file name to use for S3 bucket
+    };
+
+    // uploading file to the bucket
+    s3.upload(params, (err, response) => {
+        if (err) throw err;
+    
+        console.log(`File uploaded successfully at ${response.Location}`);
+        // terminating the req/res cycle by sending a JSON object with the uploaded
+        // file path AND any date sent along with the upload... this is where you 
+        // could write to your db if needed, now that you have the url path for the
+        // newly uploaded file!
+        res.json({ url: response.Location, data: req.body });
+    });
+});
+
+
 
 module.exports = router;
 

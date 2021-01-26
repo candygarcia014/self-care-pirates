@@ -21,5 +21,10 @@ export default {
     //gets all posts
     getPosts:async function(data) {
         return await axios.get("/api/posts", data);
+    },
+
+    // Photo Upload
+    uploadPhoto: function(data) {
+        return axios.post("/api/upload", data);
     }
 }
