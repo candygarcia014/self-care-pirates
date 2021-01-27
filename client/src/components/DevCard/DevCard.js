@@ -19,7 +19,7 @@ const DevCard = (props) => {
                 </a> */}
                 <a href={props.github}>
                     <Card.Text>
-                       <a href={props.github}><img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/96/iconmonstr-github-3.png"/></a> 
+                       <a href={props.github}><img className="github" src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/96/iconmonstr-github-3.png"/></a> 
                     </Card.Text>
                 </a>
                 <a href={props.linkedin}>
