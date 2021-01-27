@@ -2,6 +2,8 @@
 .story-card {
     display: block !important;
     margin-left: 15vw;
+    margin-bottom: 2vw;
+    margin-top: 2vw;
     min-height: 16rem;
     min-width: 40rem;
     background: #FFFFFF;
