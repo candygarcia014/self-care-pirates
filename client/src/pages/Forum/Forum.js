@@ -76,8 +76,6 @@ const Forum = () => {
   };
   //const data = Api.getPosts()
 
-  //add loading a component/ Image that tells the user that the page is loading 
-
   //to check if data is poppulating, if not populating it will show the loading componenet  
   if(!data) return <h1>Loading...</h1>
   if(!username) return <h1>Loading...</h1>

@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import PostCardFull from './../../components/PostCardFull/PostCardFull';
-import CategoryWidget from './../../components/CategoryWidget/CategoryWidget';
-import CategoryMobile from './../../components/CategoryMobile/CategoryMobile';
-import { Container, Row, Col } from 'react-bootstrap';
-import BackToTop from '../../components/BackToTop/BackToTop';
-import './PostPage.css';
-import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
-import MakeComment from '../../components/MakeComment/MakeComment';
-import Comments from '../../components/Comments/Comments';
-import API from '../../utils/Api';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import PostCardFull from "./../../components/PostCardFull/PostCardFull";
+import CategoryWidget from "./../../components/CategoryWidget/CategoryWidget";
+import CategoryMobile from "./../../components/CategoryMobile/CategoryMobile";
+import { Container, Row, Col } from "react-bootstrap";
+import BackToTop from "../../components/BackToTop/BackToTop";
+import "./PostPage.css";
+import OtherWidgets from "../../components/OtherWidgets/OtherWidgets";
+import MakeComment from "../../components/MakeComment/MakeComment";
+import Comments from "../../components/Comments/Comments";
+import API from "../../utils/Api";
 
-//fake data placeholders 
-
+//fake data placeholders
 // const fakeData = [
 //   {
 //     date: 'October 10, 1992',
@@ -22,7 +21,6 @@ import API from '../../utils/Api';
 //     id: 1
 //   }
 // ]
-
 // const fakeCommentData = [
 //   {
 //     commentDate: 'October 10, 1992',
@@ -46,26 +44,31 @@ import API from '../../utils/Api';
 
 const PostPage = () => {
   const { postId } = useParams();
+  // need container to display postdata on the postpage 
   const [postData, setPostData] = useState();
+  const [commentData, setCommentData] = useState([]);
 
   useEffect(() => {
+    console.log(postId);
     getPost(postId);
   }, []);
 
   const getPost = async (id) => {
     const res = await API.getSinglePost(id);
+    console.log(res);
     setPostData(res.data);
+    setCommentData(res.data.comments);
   };
 
-  if(!postData) return <h1>Loading...</h1>
+  if (!postData) return <h1>Loading...</h1>;
   // This postData will have everything you need to finish the front-end
-  // Since I'm not speaking use the note at the top!!!!!!
-  console.log(postData)
+  // Since I'm not speaking use the note at the
+  console.log(postData);
+console.log(commentData);
 
   return (
     <Container fluid className="forum-container">
       <Row>
-
         {/* left side widgets */}
         <Col xs={2} sm={12} lg={2}>
           <Row>
@@ -83,42 +86,23 @@ const PostPage = () => {
           </Row>
         </Col>
 
+{/* // enter the container here to hold the post and have comments below  */}
+
         {/* truncated posts */}
         <Col xs={8} sm={12} lg={8}>
-            {fakeData.map(({ title, body, username, date, id}) => (
-            <Row>
+          {commentData.map(({ body, username, date, _id }) => (
+            <Row key={_id}>
+              <Col xs={12}>
+                <Comments commentId={_id} commentDate={date} commentUsername={username} commentBody={body} />
+              </Col>
+            </Row>
+          ))}
+
+          <Row>
             <Col xs={12}>
-              <PostCardFull 
-                id={id}
-                key={id}
-                title={title} 
-                date={date} 
-                username={username} 
-                body={body} 
-             />
+              <MakeComment postId={postId} setCommentData= {setCommentData} />
             </Col>
-            </Row>
-          ))}
-
-            {fakeCommentData.map(({ commentBody, commentUsername, commentDate, commentId}) => (
-            <Row>
-             <Col xs={12}>
-              <Comments
-                key={commentId} 
-                commentId={commentId}
-                commentDate={commentDate}
-                commentUsername={commentUsername}
-                commentBody={commentBody}
-              />
-             </Col>
-            </Row>
-          ))}
-
-            <Row>
-             <Col xs={12}>
-              <MakeComment />
-             </Col>
-            </Row>
+          </Row>
         </Col>
 
         {/* right side widgets */}
@@ -129,12 +113,11 @@ const PostPage = () => {
             </Col>
           </Row>
         </Col>
-
       </Row>
 
-    <BackToTop />
-  
-  </Container>
-)};
+      <BackToTop />
+    </Container>
+  );
+};
 
 export default PostPage;
