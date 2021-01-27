@@ -15,10 +15,10 @@ class PhotoModal extends Component {
   }
   // console.log(this.state);
   handleClose = () => {
-    this.setState({ show: false });
+    this.setState({ ...this.state, show: false });
   };
   handleShow = () => {
-    this.setState({ show: true });
+    this.setState({ ...this.state, show: true });
   };
   Upload() {
     const data = new FormData();
@@ -27,7 +27,7 @@ class PhotoModal extends Component {
     const userId = decode(localStorage.getItem("token"));
     console.log(data)
     console.log(userId.id)
-    api.uploadPhoto(data, userId.id).then(x => console.log(x))
+    api.uploadPhoto(data, userId.id).then(x => this.setState({ ...this.state, show: false}))
           .catch((err) => {
         // then print response status
         alert("upload fail");
@@ -49,6 +49,7 @@ class PhotoModal extends Component {
     var file = event.target.files[0];
     console.log(file);
     this.setState({
+      ...this.state,
       selectedFile: file,
     });
   };
