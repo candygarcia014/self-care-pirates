@@ -1,9 +1,9 @@
 import React, { useState, Component } from "react";
 import { Button, Modal, Form } from "react-bootstrap/";
 import "../PhotoModal/PhotoModal.css";
-import axios from "axios";
+// import axios from "axios";
 import decode from 'jwt-decode';
-import { Alert } from "reactstrap";
+// import { Alert } from "reactstrap";
 import api from "../../utils/Api.js"
 class PhotoModal extends Component {
   constructor(props) {
