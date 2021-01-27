@@ -15,7 +15,10 @@ import PhotoModal from '../PhotoModal/PhotoModal';
 
 
 function ProfileCard() {
-    
+
+    // Api.bioGet(decode(localStorage.getItem("token")))
+    // .then (burrito => console.log(burrito));
+
     const[userInfo, setUserInfo]=useState();
     const[userBio, setUserBio]=useState();
     // const username = JSON.parse(localStorage.getItem("username")).username;
@@ -23,12 +26,24 @@ function ProfileCard() {
         getUser();
     }, [userInfo]);
 
+    const onChangeHandler = (event) => {
 
+        console.log(event.target.value);
+        var file = event.target.value;
+
+        setUserBio(file);
+    };
 
     // Update Bio
     function UpdateBio() {
+        
+        const data = new FormData();
+        data.append("bio", userBio);
+
         const userId = decode(localStorage.getItem("token"));
-        Api.bio(data, userId.id).then(() => console.log("fettuchini chicken alfredo"))
+        console.log(data, userId.id);
+        Api.bio(data, userId.id)
+        // .then(() => console.log("fettuchini chicken alfredo"))
         // (x => this.setState({ ...this.state, show: false}))
         .catch((err) => console.log(err))
     
@@ -76,13 +91,13 @@ function ProfileCard() {
                     <Card className="BioCard"> 
                         <InputGroup className="mb-3">
                             <FormControl
-                            placeholder="blah blah blah update your bio here!"
+                            placeholder={userInfo.bio}
                             aria-label="User Bio"
-                            onChange={this.onChangeHandler}
+                            onChange={onChangeHandler}
 
                             />
                             <InputGroup.Append>
-                            <Button variant="outline-secondary" onClick={Api.bio}>Edit Bio</Button>
+                            <Button variant="outline-secondary" onClick={UpdateBio}>Edit Bio</Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </Card>

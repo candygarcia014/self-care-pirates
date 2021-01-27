@@ -140,18 +140,26 @@ router.post("/posts/:postId/:userId/comments", (req, res) => {
   }); 
 });
 
-// Update User Bio Route
+// User Bio Route
 router.post("/bio/:userId", async (req, res) => {
     const { userId } = req.params;
-    console.log(req.params);
+    console.log(req.params)
+    console.log(req)
     User.findOneAndUpdate(
         { _id: userId },
-        { image: response.Location },
+        { bio : req.body.bio },
         { new: true }
         ).then((x) => x);
         
     return res.status(200).json("posted");
 })
-  
+
+//   Update User Bio Route
+router.get("/bio/:userId", (req, res) => {
+    const { userId } = req.params;
+    User.findById(userId)
+      .populate(["userBio"])
+      .then((bio) => res.json(bio));
+});
 
 module.exports = router;
