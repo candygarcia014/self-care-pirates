@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import "./DevImage.css"
+import '../../developers.json'
 
 
 const DevImage = (props) => {
