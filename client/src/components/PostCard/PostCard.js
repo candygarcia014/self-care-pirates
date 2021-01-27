@@ -16,7 +16,8 @@ const PostCard = (props) => {
     const getUrl = window.location
     var baseUrl = getUrl.protocol + "//" + getUrl.host + '/post/' + id;
     console.log(baseUrl)
-    alert('share this link    ' + baseUrl)
+    document.querySelector("#baseUrl")
+    alert('share this link    ' + baseUrl) 
     }
 
 

@@ -46,7 +46,10 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "Comments"
         }
-    ]
+    ],
+    bio: {
+        type: String
+    }
     // posts: [posts collection]
     // Create a post collection schema
 });
