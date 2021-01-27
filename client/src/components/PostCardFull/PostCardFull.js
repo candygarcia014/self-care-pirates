@@ -7,7 +7,15 @@ import Card from 'react-bootstrap/Card';
 
 
 const PostCardFull = (props) => {
+
+    const handleShare = () => {
+        const getUrl = window.location.href
+        console.log(getUrl)
+    
+        }
+
     return (
+    
         <Card className="p-0 my-2">
         <Card.Body>
             <Card.Title>{props.title}</Card.Title>
@@ -20,7 +28,7 @@ const PostCardFull = (props) => {
             </Card.Text>
             <ButtonGroup className="comment-share-button">
             {/* <Button as="input" type="button" value="Comment" data-id={props.id}/>{' '} */}
-            <Button as="input" type="submit" value="Share" />{' '}
+            <Button onClick={ handleShare }  as="input" type="submit" value="Share" />{' '}
             </ButtonGroup>    
                  
         </Card.Body>

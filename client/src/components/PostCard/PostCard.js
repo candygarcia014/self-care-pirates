@@ -7,8 +7,18 @@ import Card from 'react-bootstrap/Card';
 
 
 const PostCard = (props) => {
+
+
     const history = useHistory();
     const truncatedPost = props.body?.substring(0, 200) + "...";
+
+    const handleShare = (id) => {
+    const getUrl = window.location
+    var baseUrl = getUrl.protocol + "//" + getUrl.host + '/post/' + id;
+    console.log(baseUrl)
+
+    }
+
 
     const handleredirct = e => {
         const id  = e.target.getAttribute("data-id")
@@ -27,7 +37,7 @@ const PostCard = (props) => {
             </Card.Text>
             <ButtonGroup className="comment-share-button">
             <Button as="input" type="button" value="Comment" data-id={props.id} onClick={handleredirct}/>{' '}
-            <Button as="input" type="submit" value="Share" />{' '}
+            <Button onClick={() => handleShare(props.id) } as="input" type="submit" value="Share" />{' '}
             </ButtonGroup>           
         </Card.Body>
         </Card>

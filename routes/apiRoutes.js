@@ -1,8 +1,16 @@
+const fileUpload = require("express-fileupload");
+const AWS = require("aws-sdk");
+const keys = require("../utils/keys.js");
 const router = require('express').Router();
 const jwt = require("../configs/jwt");
 const { User, Posts, Comments } = require("../models/index");
 const passport = require("../configs/passport");
 const isUserAuthenticated = require('../middlewear/isAuthenticated');
+// creating s3 instance (to allow uploads)
+const s3 = new AWS.S3({
+    accessKeyId: keys.s3key,
+    secretAccessKey: keys.s3secret
+});
 router.post("/signup", (req, res) => {
     console.log(req.body)
     const { email, firstName, lastName, username, password } = req.body
@@ -32,12 +40,10 @@ router.get("/logout", (req,res) => {
     req.logout();
     res.json("User logged out")
 });
-
 //gets user and all of their posts 
 router.get("/user/:id", (req, res) => {
     const { id } = req.params;
     User.findById(id).populate(['userPosts', 'userComments']).populate('comments').then(user => res.json(user));
-
 });
 //posts route - to post the new posts 
 // 1. send post req to backend - in the backend we need to find the user ID to get all of his posts out of his database and update with the new posts. 
@@ -56,8 +62,6 @@ router.post("/posts/:id", (req, res) =>{
 router.get("/posts", (req, res) => {
     Posts.find().sort({ date: -1 }).then(data => res.json(data));
 })
-
-
 // Photo Upload
 router.post("/upload/:userId", async (req, res) => {
     const { userId } = req.params
@@ -65,19 +69,15 @@ router.post("/upload/:userId", async (req, res) => {
     if (!req.files) {
         return res.status(400).send("No file was uploaded.");
     }
-
     // references the file uploaded from the input field with the 'name' attribute specified following 'req.files.'
     const uploadFile = req.files.file;
-
     console.log(req.files);
-
     // setting up S3 upload parameters
     const params = {
         Body: uploadFile.data, // data from uploaded file
         Bucket: keys.s3bucket, // bucket name
         Key: `${Date.now()}-${uploadFile.name}` // file name to use for S3 bucket
     };
-
     // uploading file to the bucket
     s3.upload(params, (err, response) => {
         if (err) throw err;
@@ -90,14 +90,12 @@ router.post("/upload/:userId", async (req, res) => {
         res.json({ url: response.Location, data: req.body });
     });
 });
-
 //route to get individual post and returns data for that post 
 router.get("/posts/:id", (req, res) => {
     Posts.findById(req.params.id).populate("comments").then(data => {
         res.json(data);
     })
 });
-
 //create a new comment under the post
 router.post("/posts/:postId/:userId/comments", (req, res) => {
     const { postId, userId } = req.params;
@@ -110,9 +108,5 @@ router.post("/posts/:postId/:userId/comments", (req, res) => {
         return res.status(200).json("posted")
     });
 });
-
 });
-
-
 module.exports = router;
-
