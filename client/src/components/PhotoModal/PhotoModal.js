@@ -75,11 +75,11 @@ class PhotoModal extends Component {
     return (
       <>
         <Button
-          variant="secondary"
+          variant="outline-secondary"
           onClick={this.handleShow}
           className="PhotoBtn"
         >
-          Add
+          +
         </Button>
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
