@@ -115,7 +115,12 @@ router.get("/posts/:id", (req, res) => {
   Posts.findById(req.params.id)
     .populate("comments")
     .then((data) => {
+        console.log(data)
       res.json(data);
+    })
+    .catch((err) => {
+        console.log(err)
+      res.json(err);
     });
 });
 //create a new comment under the post
@@ -124,20 +129,12 @@ router.post("/posts/:postId/:userId/comments", (req, res) => {
   Comments.create(req.body).then((data) => {
     console.log(data);
     //comments get pushed into the posts model
-    Posts.findOneAndUpdate(
-      { _id: postId },
-      { $push: { comments: data.id } },
-      { new: true }
-    ).then((data) => {
-      //Comment gets pushed into the user model
-      User.findOneAndUpdate(
-        { _id: userId },
-        { $push: { userComments: data.id } },
-        { new: true }
-      ).then((data1) => data1);
-      return res.status(200).json("posted");
+    Posts.findOneAndUpdate ({ _id: postId }, { $push: { comments: data.id } }, { new: true }).populate("comments").then((data) => {
+        //Comment gets pushed into the user model
+        User.findOneAndUpdate({ _id: userId }, { $push: { userComments: data.id } }, { new: true }).then((data1) => data1);
+        return res.status(200).json(data);
     });
-  }); 
+    });
 });
 
 // User Bio Route
