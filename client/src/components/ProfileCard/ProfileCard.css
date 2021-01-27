@@ -45,7 +45,7 @@
     padding: 2rem;
     text-align: center;
     width: 50%;
-    border-color: white;
+    /* border-color: white; */
 }
 
 .updateBtn {
@@ -54,8 +54,7 @@
     margin-right: auto;
     font-size: xx-small;
 }
-/* 
+
 .form-control {
-    height: 10rem;
-    text-align: inherit;
-} */
+    border: none;
+}
