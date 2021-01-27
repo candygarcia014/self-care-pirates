@@ -30,5 +30,10 @@ export default {
     getSinglePost: async function(id) {
         return await axios.get("/api/posts/" + id)
     },
+    //creates comment
+    createComments: function(data, id, userId) {
+    return axios.post(`/api/posts/${id}/${userId}/comments`, data);
+    },
+
 }
-//post api that will create the comments - to render the response from the backend
+
