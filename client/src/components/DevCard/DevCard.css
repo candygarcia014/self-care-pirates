@@ -15,6 +15,6 @@
 
     
 .github {
-    min-height: 76.59px;
-    min-width: 65.31px;
+    max-height: 76.59px;
+    max-width: 65.31px;
 }
