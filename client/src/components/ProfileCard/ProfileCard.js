@@ -96,9 +96,9 @@ function ProfileCard() {
                             onChange={onChangeHandler}
 
                             />
-                            <InputGroup.Append>
+                            
                             <Button variant="outline-secondary" onClick={UpdateBio}>Edit Bio</Button>
-                            </InputGroup.Append>
+                            
                         </InputGroup>
                     </Card>
                     </div> 
