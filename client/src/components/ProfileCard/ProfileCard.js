@@ -12,7 +12,7 @@ function ProfileCard() {
     // const username = JSON.parse(localStorage.getItem("username")).username;
     useEffect(() => {
         getUser();
-    }, []);
+    }, [userInfo]);
     const getUser = async () => {
         const { id } = decode(localStorage.getItem("token"));
         const { data } = await Api.name(id);
