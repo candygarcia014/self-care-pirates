@@ -66,7 +66,7 @@ Json Web Token (JWT) <br/>
 Axios<br/>
 Express <br/>
 Node <br/>
-Sass <br/>
+
 
 ### Site URL
 The app can be accessed via this address: <!--Address to be entered
