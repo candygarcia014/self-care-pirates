@@ -10,12 +10,30 @@ import decode from 'jwt-decode';
 import '../ProfileCard/ProfileCard.css'
 import Avatar from './Avatar';
 import PhotoModal from '../PhotoModal/PhotoModal';
+
+
+
+
 function ProfileCard() {
+    
     const[userInfo, setUserInfo]=useState();
+    const[userBio, setUserBio]=useState();
     // const username = JSON.parse(localStorage.getItem("username")).username;
     useEffect(() => {
         getUser();
     }, [userInfo]);
+
+
+
+    // Update Bio
+    function UpdateBio() {
+        const userId = decode(localStorage.getItem("token"));
+        Api.bio(data, userId.id).then(() => console.log("fettuchini chicken alfredo"))
+        // (x => this.setState({ ...this.state, show: false}))
+        .catch((err) => console.log(err))
+    
+    }
+
     const getUser = async () => {
         const { id } = decode(localStorage.getItem("token"));
         const { data } = await Api.name(id);
@@ -60,10 +78,11 @@ function ProfileCard() {
                             <FormControl
                             placeholder="blah blah blah update your bio here!"
                             aria-label="User Bio"
-                            
+                            onChange={this.onChangeHandler}
+
                             />
                             <InputGroup.Append>
-                            <Button variant="outline-secondary" onClick={api.bio}>Edit Bio</Button>
+                            <Button variant="outline-secondary" onClick={Api.bio}>Edit Bio</Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </Card>
