@@ -80,7 +80,7 @@ function ProfileCard() {
             <Row>
                 <Col xs={12}>
                     <div className="FullName">
-                        {fullName(userInfo)}
+                        Hello, I'm {fullName(userInfo)}!
                     </div> 
                 </Col>
             </Row>
@@ -91,17 +91,22 @@ function ProfileCard() {
                     <Card className="BioCard"> 
                         <InputGroup className="mb-3">
                             <FormControl
+            
                             placeholder={userInfo.bio}
+                            // input={userInfo.bio}
                             aria-label="User Bio"
                             onChange={onChangeHandler}
-
                             />
-                            
-                            <Button variant="outline-secondary" onClick={UpdateBio}>Edit Bio</Button>
-                            
                         </InputGroup>
                     </Card>
+                        
                     </div> 
+                </Col>
+            </Row>
+
+            <Row>
+                <Col xs={12}>
+                    <Button variant="outline-secondary" className="updateBtn" onClick={UpdateBio}>Update </Button>
                 </Col>
             </Row>
         </div>
