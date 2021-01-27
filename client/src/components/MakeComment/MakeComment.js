@@ -42,7 +42,7 @@ const MakeComment = ({ postId, setCommentData}) => {
               </Form.Group>
             </Col>
             <Col xs={6}>
-              <Button variant="outline-dark" type="submit" className="post-button" onClick={submit}>
+              <Button variant="primary" type="submit" className="post-button" onClick={submit}>
                 Comment
               </Button>
             </Col>
