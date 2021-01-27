@@ -51,6 +51,11 @@ const DevCard = (props) => {
                         {props.github}
                     </Card.Text>
                 </a>
+                <a href={props.linkedin}>
+                    <Card.Text>
+                        {props.linkedin}
+                    </Card.Text>
+                </a>
             </Card.Body>
         </Card>
     )
