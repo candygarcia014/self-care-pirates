@@ -16,6 +16,10 @@ const PostCard = (props) => {
     const getUrl = window.location
     var baseUrl = getUrl.protocol + "//" + getUrl.host + '/post/' + id;
     console.log(baseUrl)
+
+    document.querySelector("#baseUrl")
+    alert('share this link    ' + baseUrl) 
+
     }
 
     const handleredirct = e => {
@@ -34,8 +38,8 @@ const PostCard = (props) => {
                 {truncatedPost}
             </Card.Text>
             <ButtonGroup className="comment-share-button">
-            <Button as="input" type="button" value="Comment" data-id={props.id} onClick={handleredirct}/>{' '}
-            <Button onClick={() => handleShare(props.id) } as="input" type="submit" value="Share" />{' '}
+            <Button variant="secondary" as="input" type="button" value="Comment" data-id={props.id} onClick={handleredirct}/>{' '}
+            <Button variant="secondary" onClick={() => handleShare(props.id) } as="input" type="submit" value="Share" />{' '}
             </ButtonGroup>           
         </Card.Body>
         </Card>

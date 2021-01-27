@@ -68,7 +68,7 @@ const MakePost = ({ username }) => {
 {/* submit button to create a new post */}
             <Col xs={4}>
                 <Button 
-                    variant="primary" 
+                    variant="outline-dark" 
                     type="submit"
                     className="post-button"
                     onClick={submit}
