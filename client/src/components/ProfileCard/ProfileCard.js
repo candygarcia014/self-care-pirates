@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import Card from 'react-bootstrap/esm/Card';
+import InputGroup from 'react-bootstrap/esm/InputGroup';
+import Button from 'react-bootstrap/esm/Button';
+import FormControl from 'react-bootstrap/esm/FormControl';
 import Api from "../../utils/Api";
 import decode from 'jwt-decode';
 import '../ProfileCard/ProfileCard.css'
@@ -53,7 +56,16 @@ function ProfileCard() {
                 <Col xs={12}>
                     <div className="Bio">
                     <Card className="BioCard"> 
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        <InputGroup className="mb-3">
+                            <FormControl
+                            placeholder="blah blah blah update your bio here!"
+                            aria-label="User Bio"
+                            
+                            />
+                            <InputGroup.Append>
+                            <Button variant="outline-secondary">Edit Bio</Button>
+                            </InputGroup.Append>
+                        </InputGroup>
                     </Card>
                     </div> 
                 </Col>

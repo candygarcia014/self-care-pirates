@@ -30,5 +30,9 @@ export default {
     getSinglePost: async function(id) {
         return await axios.get("/api/posts/" + id)
     },
+    // Bio Update
+    bio: function(data, id) {
+        return axios.post("/api/bio" + id, data);
+    }
 }
 //post api that will create the comments - to render the response from the backend
