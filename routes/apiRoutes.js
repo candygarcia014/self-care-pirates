@@ -159,4 +159,12 @@ router.get("/bio/:userId", (req, res) => {
       .then((bio) => res.json(bio));
 });
 
+router.get("/posts/:postId", (req, res) => {
+  const { postId } = req.params;
+  User.findById(postId)
+    .populate(["post"])
+    .then((post) => res.json(post));
+});
+
+
 module.exports = router;

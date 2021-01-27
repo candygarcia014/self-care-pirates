@@ -42,6 +42,9 @@ export default {
     createComments: function(data, id, userId) {
     return axios.post(`/api/posts/${id}/${userId}/comments`, data);
     },
-
+    //get post into PostPage
+    postPull: function(data, id) {
+        return axios.post("/api/postId/" + id);
+    },
 }
 

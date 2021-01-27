@@ -16,10 +16,11 @@ const PostCard = (props) => {
     const getUrl = window.location
     var baseUrl = getUrl.protocol + "//" + getUrl.host + '/post/' + id;
     console.log(baseUrl)
+
     document.querySelector("#baseUrl")
     alert('share this link    ' + baseUrl) 
-    }
 
+    }
 
     const handleredirct = e => {
         const id  = e.target.getAttribute("data-id")
