@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import PostCard from './../../components/PostCard/PostCard';
 import CategoryWidget from './../../components/CategoryWidget/CategoryWidget';
+import CategoryMobile from './../../components/CategoryMobile/CategoryMobile';
 import { Container, Row, Col } from 'react-bootstrap';
 import BackToTop from '../../components/BackToTop/BackToTop';
 import './Forum.css';
 import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
 import MakePost from '../../components/MakePost/MakePost';
 import Api from "../../utils/Api"
+
+
 
 //fake data placeholders 
 
@@ -60,7 +63,8 @@ const Forum = () => {
   useEffect(() => {
     getAllPost();
     setUsername(JSON.parse(localStorage.getItem('username')))
-  }, []);
+    //run what is in useEffect again / refresh the data and poppulate new posts at the top. 
+  }, [data]);
 //this is the API to get all posts on forum pg
   const getAllPost = async () => {
     try {
@@ -70,24 +74,29 @@ const Forum = () => {
       console.log(err)
     }
   };
-  // const data = Api.getPosts()
-  //add loading component - loading mimage 
+  //const data = Api.getPosts()
+
+  //add loading a component/ Image that tells the user that the page is loading 
 
   //to check if data is poppulating, if not populating it will show the loading componenet  
   if(!data) return <h1>Loading...</h1>
   if(!username) return <h1>Loading...</h1>
 
-  const sortedArray = data;
 
+//sorts tru the array of posts and puts them in chronological order from newest to oldest
+ 
   return (
     <Container fluid className="forum-container">
       <Row>
 
         {/* left side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} className="category-desktop">
               <CategoryWidget />
+            </Col>
+            <Col xs={12} className="category-mobile">
+              <CategoryMobile />
             </Col>
           </Row>
           <Row>
@@ -98,19 +107,19 @@ const Forum = () => {
         </Col>
 
         {/* posts */}
-        <Col xs={8}>
+        <Col xs={8} sm={12} lg={8}>
             <Row>
               <Col xs={12}>
                 <MakePost username={username.username}/>
               </Col>
             </Row>
             {/* //these are the requirements for the posts */}
-            {sortedArray.map(({title, body, username, date, id}) => (           
+            {data.map(({title, body, username, date, _id}) => (           
             <Row>
               <Col xs={12}>
                 <PostCard
-                  key={id} 
-                  id={id}
+                  key={_id} 
+                  id={_id}
                   title={title} 
                   date={date} 
                   username={username} 
@@ -122,7 +131,7 @@ const Forum = () => {
         </Col>
 
         {/* right side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
             <Col xs={12}>
               <OtherWidgets />

@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import PostCardFull from './../../components/PostCardFull/PostCardFull';
 import CategoryWidget from './../../components/CategoryWidget/CategoryWidget';
+import CategoryMobile from './../../components/CategoryMobile/CategoryMobile';
 import { Container, Row, Col } from 'react-bootstrap';
 import BackToTop from '../../components/BackToTop/BackToTop';
 import './PostPage.css';
 import OtherWidgets from '../../components/OtherWidgets/OtherWidgets';
 import MakeComment from '../../components/MakeComment/MakeComment';
 import Comments from '../../components/Comments/Comments';
-
-//fake data placeholders 
+import API from '../../utils/Api';
 
 const fakeData = [
   {
@@ -42,15 +43,35 @@ const fakeCommentData = [
 ]
 
 const PostPage = () => {
+  const { postId } = useParams();
+  const [postData, setPostData] = useState();
+
+  useEffect(() => {
+    getPost(postId);
+  }, []);
+
+  const getPost = async (id) => {
+    const res = await API.getSinglePost(id);
+    setPostData(res.data);
+  };
+
+  if(!postData) return <h1>Loading...</h1>
+  // This postData will have everything you need to finish the front-end
+  // Since I'm not speaking use the note at the top!!!!!!
+  console.log(postData)
+
   return (
     <Container fluid className="forum-container">
       <Row>
 
         {/* left side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} className="category-desktop">
               <CategoryWidget />
+            </Col>
+            <Col xs={12} className="category-mobile">
+              <CategoryMobile />
             </Col>
           </Row>
           <Row>
@@ -61,12 +82,13 @@ const PostPage = () => {
         </Col>
 
         {/* truncated posts */}
-        <Col xs={8}>
+        <Col xs={8} sm={12} lg={8}>
             {fakeData.map(({ title, body, username, date, id}) => (
             <Row>
             <Col xs={12}>
               <PostCardFull 
                 id={id}
+                key={id}
                 title={title} 
                 date={date} 
                 username={username} 
@@ -79,7 +101,8 @@ const PostPage = () => {
             {fakeCommentData.map(({ commentBody, commentUsername, commentDate, commentId}) => (
             <Row>
              <Col xs={12}>
-              <Comments 
+              <Comments
+                key={commentId} 
                 commentId={commentId}
                 commentDate={commentDate}
                 commentUsername={commentUsername}
@@ -97,7 +120,7 @@ const PostPage = () => {
         </Col>
 
         {/* right side widgets */}
-        <Col xs={2}>
+        <Col xs={2} sm={12} lg={2}>
           <Row>
             <Col xs={12}>
               <OtherWidgets />

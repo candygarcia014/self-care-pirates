@@ -7,40 +7,31 @@ import decode from 'jwt-decode';
 import '../ProfileCard/ProfileCard.css'
 import Avatar from './Avatar';
 import PhotoModal from '../PhotoModal/PhotoModal';
-
-
 function ProfileCard() {
     const[userInfo, setUserInfo]=useState();
-
     // const username = JSON.parse(localStorage.getItem("username")).username;
-    
     useEffect(() => {
         getUser();
     }, []);
-
     const getUser = async () => {
         const { id } = decode(localStorage.getItem("token"));
         const { data } = await Api.name(id);
         setUserInfo(data);
     };
-
     if(!userInfo) return <h1>Loading...</h1>
-    const { firstName, lastName, username } = userInfo;
-
+    const { firstName, lastName, username, image } = userInfo;
     const fullName = (user) => {
         return `${user.firstName} ${user.lastName}`
     }
-
     return (
         <div className="Container">
             {/* User Photo */}
             <Row>
                 <Col xs={12}>
-                    <Avatar />
+                    <Avatar image={image} style={{"max-height":"250px", "max-width": "250px", "height":"100%", }}/>
                     <PhotoModal />
                 </Col>
             </Row>
-
             {/* Username*/}
             <Row>
                 <Col xs={12}>
@@ -49,7 +40,6 @@ function ProfileCard() {
                     </div> 
                 </Col>
             </Row>
-
             {/* Full Name*/}
             <Row>
                 <Col xs={12}>
@@ -58,7 +48,6 @@ function ProfileCard() {
                     </div> 
                 </Col>
             </Row>
-
             {/* User Bio*/}
             <Row>
                 <Col xs={12}>
@@ -69,11 +58,7 @@ function ProfileCard() {
                     </div> 
                 </Col>
             </Row>
-            
-
-
         </div>
     )
 }
-
 export default ProfileCard
