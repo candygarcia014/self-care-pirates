@@ -25,11 +25,11 @@ function App() {
         <ProtectedRoute path='/user'>
           <User />
         </ProtectedRoute>
-        <Route path='/post/:postId/' component={CommentPage} />
+        <Route path='/post/:postId' component={PostPage} />
         <Route path='/our-story' component={OurStory} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={SignIn} />
-        <Route path='/post' component={PostPage} />
+        {/* <Route path='/post' component={PostPage} /> */}
       </Switch>
     </Router>
   );

@@ -114,12 +114,12 @@ const Forum = () => {
               </Col>
             </Row>
             {/* //these are the requirements for the posts */}
-            {data.map(({title, body, username, date, id}) => (           
+            {data.map(({title, body, username, date, _id}) => (           
             <Row>
               <Col xs={12}>
                 <PostCard
-                  key={id} 
-                  id={id}
+                  key={_id} 
+                  id={_id}
                   title={title} 
                   date={date} 
                   username={username} 

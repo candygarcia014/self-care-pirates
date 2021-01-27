@@ -32,10 +32,19 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    image: {
+        type: String
+    },
     userPosts: [
         {
             type: Schema.Types.ObjectId,
             ref: "Posts"
+        }
+    ],
+    userComments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Comments"
         }
     ]
     // posts: [posts collection]
