@@ -30,6 +30,14 @@ export default {
     getSinglePost: async function(id) {
         return await axios.get("/api/posts/" + id)
     },
+    // Bio 
+    bio: function(data, id) {
+        return axios.post("/api/bio/" + id, data);
+    },
+    // Bio Update
+    bioGet: function(data, id) {
+        return axios.get("/api/bio/" + id);
+    },
     //creates comment
     createComments: function(data, id, userId) {
     return axios.post(`/api/posts/${id}/${userId}/comments`, data);
