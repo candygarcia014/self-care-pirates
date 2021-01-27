@@ -8,8 +8,10 @@ const StoryCard = () => {
   <Card className="story-card p-3 my-0">
   <Card.Body>
     <Card.Text style={{marginTop: "2rem"}}>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+            Based upon research, we found that men want to be more knowledgeable about 
+            self-care but lack the resources to do so. We created Self Care 
+            Pirates as a forum for males that provides fast and reliable resources which 
+            enables them to take action on their personal care.  
     </Card.Text>
   </Card.Body>
 </Card>
