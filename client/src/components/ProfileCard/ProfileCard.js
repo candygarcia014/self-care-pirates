@@ -89,7 +89,8 @@ function ProfileCard() {
                 <Col xs={12}>
                     <div className="Bio">
                     <Card className="BioCard"> 
-                        <InputGroup className="mb-3">
+                        
+                        <InputGroup className="mb-3 d-flex">
                             <FormControl
             
                             placeholder={userInfo.bio}
@@ -98,6 +99,7 @@ function ProfileCard() {
                             onChange={onChangeHandler}
                             />
                         </InputGroup>
+                        <Button variant="outline-secondary" className="updateBtn" onClick={UpdateBio}>Update </Button>
                     </Card>
                         
                     </div> 
@@ -106,7 +108,7 @@ function ProfileCard() {
 
             <Row>
                 <Col xs={12}>
-                    <Button variant="outline-secondary" className="updateBtn" onClick={UpdateBio}>Update </Button>
+                    
                 </Col>
             </Row>
         </div>
