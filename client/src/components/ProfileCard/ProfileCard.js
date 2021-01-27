@@ -91,7 +91,7 @@ function ProfileCard() {
                     <Card className="BioCard"> 
                         
                         <InputGroup className="mb-3 d-flex">
-                            <FormControl
+                            <FormControl className="bioForm"
             
                             placeholder={userInfo.bio}
                             // input={userInfo.bio}
