@@ -40,7 +40,8 @@ const OurStory = (props) => {
           <Col xs={9}  className="my-auto">
             <DevCard 
               name={dev.name}
-              github={dev.github} />
+              github={dev.github}
+              linkedin={dev.linkedin} />
           </Col>
         </Row>
     ))}
