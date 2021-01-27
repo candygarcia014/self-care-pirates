@@ -63,7 +63,7 @@ function ProfileCard() {
                             
                             />
                             <InputGroup.Append>
-                            <Button variant="outline-secondary">Edit Bio</Button>
+                            <Button variant="outline-secondary" onClick={api.bio}>Edit Bio</Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </Card>
