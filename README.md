@@ -11,7 +11,8 @@ The app does not require the user to register to view the forum, but if the user
 ## User Story:
 Men want a straightforward and reliable website to find information about self-care, where they can share their personal experiences and reviews. Men deserve a positive community to discuss and research self care, and finally stop using 4-in-one shampoo. 
 
-## Features
+## App link 
+https://aqueous-refuge-56122.herokuapp.com/
 
 ## Table of Contents 
 * [Installation](#installation)
